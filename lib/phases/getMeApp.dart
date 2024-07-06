@@ -17,10 +17,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
   final TextEditingController _numberController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   bool  isDownloadHovered = false;
-  void cc() {
-    print('hello');
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -31,7 +28,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
             onTap: () {
               if (h == true) {
                 // stark();
-                cc();
+                
               }
               // showDialog(
               //   context: context,
@@ -45,22 +42,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
               // );
             },
 
-            //           void _showSnackbar() {
-            //   ScaffoldMessenger.of(context).showSnackBar(
-            //     SnackBar(
-            //       content: Text('Container tapped!'),
-            //       duration: Duration(seconds: 2),
-            //     ),
-            //   );
-            // }
-
-            // @override
-            // Widget build(BuildContext context) {
-            //   return GestureDetector(
-            //     onTap: () {
-            //       _showSnackbar();
-            //     },
-
+            
             child : Padding(
                   padding: EdgeInsetsDirectional.only(top: 30),
                   child: MouseRegion(
@@ -88,7 +70,9 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                 },
               );
                       },
-                      child: Container(
+                      child: Transform.scale(
+                      scale: isDownloadHovered ? 1.03 : 1.0,
+                      child : Container(
                         width: 220,
                         decoration: BoxDecoration(
                           color: isDownloadHovered
@@ -99,7 +83,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                               blurRadius: 2,
                               color: Color.fromARGB(51, 237, 236, 236),
                               offset: Offset(0, 2),
-                              spreadRadius: 2,
+                              spreadRadius: isDownloadHovered ? 3.8 : 0.5,
                             ),
                           ],
                           borderRadius: BorderRadius.circular(10),
@@ -138,6 +122,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                           ),
                         ),
                       ),
+                      )
                     ),
                   ),
                 ),
@@ -341,7 +326,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
 
   void _updateHover(bool isHovering) {
     setState(() {
-      _isHovering = isHovering;
+      isDownloadHovered = isHovering;
     });
   }
 }
