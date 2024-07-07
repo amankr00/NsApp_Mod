@@ -9,7 +9,8 @@ class _Mphase6State extends State<Mphase6> {
   bool _isKnowMoreHovered = false;
   @override
   Widget build(BuildContext context) {
-    return Stack(alignment: Alignment.center, children: [
+    return Stack(
+    alignment: Alignment.center, children: [
       Container(
           // color: Color.fromARGB(255, 132, 190, 39),
           height: MediaQuery.of(context).size.height ,

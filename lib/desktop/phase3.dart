@@ -8,7 +8,7 @@ class phase3 extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(80, 0, 0, 0),
+          padding: EdgeInsetsDirectional.fromSTEB(90, 0, 0, 0),
           child:
               Column(
               crossAxisAlignment: CrossAxisAlignment.start, children: [

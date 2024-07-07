@@ -260,6 +260,7 @@ class _MobileLyState extends State<MobileLy> {
 
     final _containerHeight = 300.0;
     final _containerwidth = 400.0;
+    double _scale2 = 1.0; 
 
 
   
@@ -287,6 +288,17 @@ class _MobileLyState extends State<MobileLy> {
           Navbar(),
           //  SizedBox(height: 500,),
           Expanded(
+          child : NotificationListener<ScrollUpdateNotification>(
+        onNotification: (notification) {
+          setState(() {
+            // Adjust scale based on scroll direction and magnitude
+            _scale2 = 1.0 - notification.metrics.pixels / 1000;
+            if (_scale2 < 0.5) {
+              _scale2 = 0.5; // Limit minimum scale
+            }
+          });
+          return true;
+        },
           child: SingleChildScrollView(
             child: 
             Column(
@@ -326,22 +338,24 @@ class _MobileLyState extends State<MobileLy> {
                       child: Column(
                         children: [
                           SizedBox(
-                            height: 30,
+                            height: 20,
                           ),
                           // image
 
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            // height: 60,
+                            width: MediaQuery.of(context).size.width * 0.65,
+                            // color : const Color.fromARGB(255, 182, 233, 30),
+                            height: 180,
                             child: ClipRect(
                                 child: Image.asset(
                               'assets/images/manage.png',
+                              fit : BoxFit.fitWidth
                             )),
                           ),
 
-                          SizedBox(
-                            height: 30,
-                          ),
+                          // SizedBox(
+                          //   height: 30,
+                          // ),
 
                           Container(
                               child: Text('Task management',
@@ -383,23 +397,21 @@ class _MobileLyState extends State<MobileLy> {
                           borderRadius: BorderRadius.circular(25)),
                       child: Column(
                         children: [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          // image
-
+                        
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            // height: 60,
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            height:200,
+                            // color : Colors.pink,
                             child: ClipRect(
                                 child: Image.asset(
                               'assets/images/inno.png',
+                              fit : BoxFit.cover
                             )),
                           ),
 
-                          SizedBox(
-                            height: 30,
-                          ),
+                          // SizedBox(
+                          //   height: 30,
+                          // ),
 
                           Container(
                               child: Text('Innovative technology',
@@ -429,9 +441,9 @@ class _MobileLyState extends State<MobileLy> {
                           ),
                         ],
                       )),
-                  SizedBox(
-                    height: 30,
-                  ),
+                  // SizedBox(
+                  //   height: 30,
+                  // ),
                   
                  // Container which has chip 
                   Mphase6(),
@@ -452,22 +464,15 @@ class _MobileLyState extends State<MobileLy> {
                     height: 30,
                   ),
 
-                  Container(
-                    // width: 200,
-                    height: 400,
-                    color: Colors.blueGrey,
-                    // child : ParallaxImage()
-                  ),
-
-                  SizedBox(
-                    height: 150,
-                  ),
-
-                  
-                 
-                    ]),
-          ))
-        ]));
+                    ]
+                    ),
+          
+          )
+          )
+          )
+        
+        ])
+        );
   }
 
 }

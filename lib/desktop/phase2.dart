@@ -24,11 +24,12 @@ class phase2 extends StatelessWidget {
               // color: Colors.black,
               alignment: Alignment.center,
               
-              child: ClipRect(
+              child: ClipRRect(
                   child: Image.asset(
                 'assets/images/sideloook.png',
-                width: MediaQuery.of(context).size.width * 0.4,
-                height: MediaQuery.of(context).size.height * 0.9,
+                width: MediaQuery.of(context).size.width * 0.3,
+                height: MediaQuery.of(context).size.height * 0.5,
+                
                 // width: 800,
                 // height: 750,
                 fit: BoxFit.cover,
@@ -40,7 +41,6 @@ class phase2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-           SizedBox(height: 90,),
 
             Container(
                 // width: 450,
@@ -84,8 +84,10 @@ class phase2 extends StatelessWidget {
                         )
                       ],
                     ),
-                  ).animate().fade(duration: 2000.ms).slideX(begin: 5, end: 0),
+                  )
+                  // .animate().fade(duration: 2000.ms).slideX(begin: 5, end: 0),
                 )),
+           SizedBox(height: 30,),
 
             Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),

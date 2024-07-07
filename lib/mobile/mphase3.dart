@@ -22,19 +22,19 @@ class _Mphase3State extends State<Mphase3> {
             // image
 
             Container(
-              width: MediaQuery.of(context).size.width * 0.5,
-              height: 200,
+              width: MediaQuery.of(context).size.width * 0.35,
+              height: 180,
               // color:Colors.pink,
               child: ClipRect(
                   child: Image.asset(
-                'assets/images/project.png',
+                'assets/images/ive.png',
                 fit : BoxFit.cover
               )),
             ),
 
-            SizedBox(
-              height: 30,
-            ),
+            // SizedBox(
+            //   height: 30,
+            // ),
 
             Container(
                 child: Text('Project scoping',

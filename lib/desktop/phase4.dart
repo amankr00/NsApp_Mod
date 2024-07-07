@@ -12,8 +12,9 @@ class phase4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         height: 400,
+        // color: Colors.red,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
@@ -21,12 +22,12 @@ class phase4 extends StatelessWidget {
                 height: 200,
                 child: ClipRect(
                     child: Image.asset(
-                  'assets/images/pro.png',
+                  'assets/images/profile.png',
                   fit: BoxFit.contain,
                 ))),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               SizedBox(
-                height: 90,
+                height: 120,
               ),
               Container(
                   // child : Text('"Framer has been a game-changer in enabling us to bring all stakeholders on board with what the final product experience should actually feel like."',
@@ -74,9 +75,9 @@ class phase4 extends StatelessWidget {
                     ),
                   )),
               Container(
-                width: 220,
+                width: 300,
                 height: 50,
-                // color: Colors.blue,
+                // color: Color.fromARGB(255, 105, 202, 108),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

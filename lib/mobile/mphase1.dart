@@ -53,7 +53,7 @@ class _Mphase1State extends State<Mphase1> {
                                 width: MediaQuery.of(context).size.width * 0.8,
                                 // color : const Color.fromARGB(255, 68, 255, 130),
                                 child: Text(
-                                  'Your digital wingman, soaring above the ever changing terrain. ',
+                                  'Cutting-edge bespoke mobile and web app development services.',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 36,

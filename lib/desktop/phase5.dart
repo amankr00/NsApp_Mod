@@ -7,9 +7,10 @@ class phase5 extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        // Padding(
-        // padding: EdgeInsetsDirectional.only(end: 159),
-        // child :
+        Padding(
+        padding: EdgeInsetsDirectional.only(end: 159),
+        child :
+
         Container(
           // width: 750,
           // height: 700,
@@ -20,11 +21,11 @@ class phase5 extends StatelessWidget {
             'assets/images/lowlogo3.png',
           )),
         ),
-        // ),
+        ),
 
-        // Padding(padding: EdgeInsetsDirectional.only(end: 200),
+        Padding(padding: EdgeInsets.only(right: 25),
 
-        // child :
+        child :
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -32,7 +33,7 @@ class phase5 extends StatelessWidget {
             Container(
                 // width : 380,
                 // height: 130,
-                width: MediaQuery.of(context).size.width * 0.4,
+                width: MediaQuery.of(context).size.width * 0.33,
                 // color: Colors.green,
                 child: RichText(
                     text: TextSpan(children: [
@@ -107,6 +108,7 @@ class phase5 extends StatelessWidget {
                       ]),
             )
           ],
+        )
         )
       ],
     );

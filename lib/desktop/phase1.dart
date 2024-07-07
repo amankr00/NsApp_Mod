@@ -49,7 +49,7 @@ class _Phase1State extends State<Phase1> {
                       // height: MediaQuery.of(context).size.height * 0.4,
                       // ${pRt}   ${MediaQuery.of(context).size.width }
                       child: Text(
-                        'Create better prototypes, faster.  ',
+                        'Cutting-edge bespoke mobile and web app development services. ',
                         style: TextStyle(
                             fontSize: 60,
                             fontFamily: 'ArchivoBlack-Regular',
@@ -72,7 +72,7 @@ class _Phase1State extends State<Phase1> {
                     // height: 120,
                     width: MediaQuery.of(context).size.width * 0.3,
                     child: Text(
-                        'Framer is the best prototyping tool for teams. Quickly create realistic interactive designs, share with just a link, and handoff cleanly.',
+                        'Turning your vision into innovative apps, we create custom solutions that drive success and faster growth in the digital realm.',
                         style : TextStyle(
                           fontSize: 20,
                           letterSpacing: 0,
@@ -84,7 +84,7 @@ class _Phase1State extends State<Phase1> {
                   
 
                   Padding(
-                    padding: EdgeInsets.only(top: 50),
+                    padding: EdgeInsets.only(top: 30),
                     child: HoverEffectExample()
                         .animate()
                         .fade(delay: 100.ms)

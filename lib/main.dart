@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:nsapps_mod/desktop/t3.dart';
 import 'package:nsapps_mod/home.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nsapps_mod/test0.dart';
+import 'package:nsapps_mod/test3.dart';
+
 
 void main() {
 // WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +27,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomeMain(title: 'Ns',),
         // '/' : (context) => TapToScroll(),
-        // '/' : (context) => InfiniteScrollDemo(),
-        // '/' : (context) => ScrollZoomPage(),
+        // '/' : (context) => ZoomOnScrollContainer(),
+        
       },
     );
   }
