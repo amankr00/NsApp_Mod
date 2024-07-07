@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:nsapps_mod/phases/anime2.dart';
 
 class phase2 extends StatelessWidget {
   get context => null;

@@ -1,107 +1,171 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-class HoverEffectExample1 extends StatefulWidget {
+class HoverEffectExample extends StatefulWidget {
   @override
-  _HoverEffectExample1State createState() => _HoverEffectExample1State();
+  _HoverEffectExampleState createState() => _HoverEffectExampleState();
 }
 
 bool h = false;
 
-class _HoverEffectExample1State extends State<HoverEffectExample1> {
-  bool _isHovering = false;
+class _HoverEffectExampleState extends State<HoverEffectExample> {
+  
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _numberController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  bool isDownloadHovered = false;
-  void cc() {
-    print('hello');
-  }
-
+  bool  isDownloadHovered = false;
+ 
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Padding(
-        padding: EdgeInsetsDirectional.only(top: 30),
-        child: MouseRegion(
-          onEnter: (_) {
-            setState(() {
-              isDownloadHovered = true;
-            });
-          },
-          onExit: (_) {
-            setState(() {
-              isDownloadHovered = false;
-            });
-          },
+      MouseRegion(
+          onEnter: (event) => _updateHover(true),
+          onExit: (event) => _updateHover(false),
           child: GestureDetector(
             onTap: () {
-              // _showDownloadDialog(context);
-              showDialog(
+              if (h == true) {
+                // stark();
+                
+              }
+              // showDialog(
+              //   context: context,
+              //   useRootNavigator: false,
+              //   // Navigator.pop(context, true),
+              //   builder: (BuildContext context) {
+              //     return Container(
+              //         child: subscriptionForm(
+              //             context, _nameController, _numberController));
+              //   },
+              // );
+            },
+
+            
+            child : Padding(
+                  padding: EdgeInsetsDirectional.only(top: 30),
+                  child: MouseRegion(
+                    onEnter: (_) {
+                      setState(() {
+                        isDownloadHovered = true;
+                      });
+                    },
+                    onExit: (_) {
+                      setState(() {
+                        isDownloadHovered = false;
+                      });
+                    },
+                    child: GestureDetector(
+                      onTap: () {
+                        // _showDownloadDialog(context);
+                         showDialog(
                 context: context,
                 useRootNavigator: false,
                 // Navigator.pop(context, true),
                 builder: (BuildContext context) {
                   return Container(
-                      child: subscriptionForm1(
+                      child: subscriptionForm(
                           context, _nameController, _numberController));
                 },
               );
-            },
-            child: Container(
-              width: 230,
-              decoration: BoxDecoration(
-                color: isDownloadHovered
-                    ? const Color.fromARGB(255, 2, 136, 246)
-                    : Colors.blue,
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 2,
-                    color: Color.fromARGB(51, 237, 236, 236),
-                    offset: Offset(0, 2),
-                    spreadRadius: 2,
-                  ),
-                ],
-                borderRadius: BorderRadius.circular(10),
-                shape: BoxShape.rectangle,
-              ),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 15, 5, 15),
-                      child: Text(
-                        'Get me an app',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFFFFFFFF),
-                          letterSpacing: 0,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w400,
+                      },
+                      child: Transform.scale(
+                      scale: isDownloadHovered ? 1.03 : 1.0,
+                      child : Container(
+                        width: 220,
+                        decoration: BoxDecoration(
+                          color: isDownloadHovered
+                              ? Color(0xff7da0ca)
+                              : Color(0xff5483b3),
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 2,
+                              color: Color.fromARGB(51, 237, 236, 236),
+                              offset: Offset(0, 2),
+                              spreadRadius: isDownloadHovered ? 3.8 : 0.5,
+                            ),
+                          ],
+                          borderRadius: BorderRadius.circular(10),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10, 15, 5, 15),
+                                child: Text(
+                                  'Download app',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Color(0xFFFFFFFF),
+                                    letterSpacing: 0,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              AnimatedContainer(
+                                duration: Duration(milliseconds: 300),
+                                margin: EdgeInsets.only(
+                                    left: isDownloadHovered ? 10 : 0),
+                                child: Icon(
+                                  Icons.chevron_right,
+                                  color: Color(0xFFFFFFFF),
+                                  size: 20,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
+                      )
                     ),
-                    AnimatedContainer(
-                      duration: Duration(milliseconds: 300),
-                      margin: EdgeInsets.only(left: isDownloadHovered ? 10 : 0),
-                      child: Icon(
-                        Icons.chevron_right,
-                        color: Color(0xFFFFFFFF),
-                        size: 20,
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          ),
-        ),
-      ),
+
+
+
+            // child: AnimatedContainer(
+            //   duration: Duration(milliseconds: 200),
+            //   width: _isHovering ? 180 * 1.05 : 180,
+            //   height: _isHovering ? 50 * 1.05 : 50,
+            //   decoration: BoxDecoration(
+            //     color: _isHovering
+            //         ? Color.fromARGB(255, 0, 140, 255)
+            //         : const Color.fromARGB(255, 33, 150, 243),
+            //     borderRadius: BorderRadius.circular(20),
+            //   ),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            //     children: [
+            //       Text('Get me an app',
+            //           style: GoogleFonts.raleway(
+            //               textStyle: TextStyle(
+            //             fontSize: 16,
+            //             letterSpacing: 0,
+            //             fontWeight: FontWeight.w500,
+            //             decoration: TextDecoration.none,
+            //             color: Color.fromARGB(255, 255, 255, 255),
+            //           ))),
+            //       Container(
+            //         width: 20,
+            //         height: 30,
+            //         child: ClipRRect(
+            //           child: Image.asset(
+            //             'assets/images/rarrow.png',
+            //             width: 20,
+            //             height: 30,
+            //           ),
+            //         ),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+          )),
     ]);
   }
 
-  Center subscriptionForm1(
+  Center subscriptionForm(
       BuildContext context,
       TextEditingController nameController,
       TextEditingController numberController) {
@@ -134,7 +198,7 @@ class _HoverEffectExample1State extends State<HoverEffectExample1> {
               top: 0,
               // right: 0,
               child: Container(
-                  height: MediaQuery.of(context).size.height * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.5,
                   // color: Colors.green,
                   child: ClipRect(
                     child: Image.asset(
@@ -152,34 +216,31 @@ class _HoverEffectExample1State extends State<HoverEffectExample1> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-                      child: Text(
-                        'GET YOUR OWN APP TODAY',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 30,
+                    Text(
+                      'GET YOUR OWN APP TODAY',
+                      style:TextStyle(
+                          fontSize: 50,
                           fontFamily: 'ArchivoBlack-Regular',
                           letterSpacing: 0,
                           fontWeight: FontWeight.w100,
                           decoration: TextDecoration.none,
                           color: Color(0xff5C6B8B),
                         ),
-                      ),
                     ),
                     Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 30),
                         child: Text(
                           'Your Vision , Our Code',
                           style: TextStyle(
-                            fontSize: 22,
-                            fontFamily: 'arimo',
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.w600,
-                            decoration: TextDecoration.none,
-                            color: Color(0xff5C6B8B),
+                              fontSize: 22,
+                              fontFamily : 'arimo',
+                              letterSpacing: 0,
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.none,
+                              color: Color(0xff5C6B8B),
+                            ),
                           ),
-                        )),
+                        ),
                     Container(
                       height: MediaQuery.of(context).size.height * 0.20,
                       child: ClipRect(
@@ -190,12 +251,11 @@ class _HoverEffectExample1State extends State<HoverEffectExample1> {
                       height: MediaQuery.of(context).size.width * 0.01,
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.50,
+                      width: MediaQuery.of(context).size.width * 0.20,
                       child: Material(
                         // elevation: 3,
                         borderRadius: BorderRadius.circular(60),
-                        color: Color.fromARGB(43, 187, 192, 197),
-                        // color: Color.fromARGB(255, 59, 132, 156),
+                        color: Color(0xffEFF4FA),
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
                           child: TextField(
@@ -220,12 +280,11 @@ class _HoverEffectExample1State extends State<HoverEffectExample1> {
                       height: MediaQuery.of(context).size.width * 0.008,
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.50,
+                      width: MediaQuery.of(context).size.width * 0.20,
                       child: Material(
                         // elevation: 3,
                         borderRadius: BorderRadius.circular(60),
-                        // color: Color.fromARGB(35, 239, 244, 250),
-                        color: Color.fromARGB(43, 187, 192, 197),
+                        color: Color(0xffEFF4FA),
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
                           child: TextField(
@@ -263,7 +322,7 @@ class _HoverEffectExample1State extends State<HoverEffectExample1> {
 
   void _updateHover(bool isHovering) {
     setState(() {
-      _isHovering = isHovering;
+      isDownloadHovered = isHovering;
     });
   }
 }
@@ -280,15 +339,13 @@ class _SubscribeState extends State<Subscribe> {
   bool _isHovering = false;
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _numberController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
   bool tap = false;
 
   void _showSnackbar() {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-            'Container tapped! $_nameController.text $_numberController.number '),
-        duration: 7000.ms,
+        content: Text('Container tapped! $_nameController.text $_numberController.number '),
+        duration : 7000.ms,
       ),
     );
   }
@@ -300,9 +357,32 @@ class _SubscribeState extends State<Subscribe> {
           onEnter: (event) => _updateHover(true),
           onExit: (event) => _updateHover(false),
           child: GestureDetector(
+
             onTap: () {
               tap = true;
               h = true;
+
+              // showDialog(
+              //       context: context,
+              //       builder: (BuildContext context) {
+              //         return SnackbarDemo();
+              //       })
+              ;
+              // Container(
+              // width: 300,
+              // color: Colors.purple,);
+
+              // ScaffoldMessenger.of(context).showSnackBar(
+              //   SnackBar(
+              //     content: Text('Hello! This is a snackbar'),
+              //     action: SnackBarAction(
+              //       label: 'Undo',
+              //       onPressed: () {
+              //         // Code to execute when the action is pressed
+              //       },
+              //     ),
+              //   ),
+              // );
               _showSnackbar();
             },
             child: AnimatedContainer(

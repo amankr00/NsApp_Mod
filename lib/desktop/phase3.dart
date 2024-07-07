@@ -1,60 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nsapps_mod/phases/anime2.dart';
 
-class phase5 extends StatelessWidget {
+class phase3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        // Padding(
-        // padding: EdgeInsetsDirectional.only(end: 159),
-        // child :
-        Container(
-          // width: 750,
-          // height: 700,
-          width: MediaQuery.of(context).size.width * 0.37,
-          // color: Colors.purple,
-          child: ClipRRect(
-              child: Image.asset(
-            'assets/images/lowlogo3.png',
-          )),
-        ),
-        // ),
-
-        // Padding(padding: EdgeInsetsDirectional.only(end: 200),
-
-        // child :
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(80, 0, 0, 0),
+          child:
+              Column(
+              crossAxisAlignment: CrossAxisAlignment.start, children: [
             Container(
-                // width : 380,
-                // height: 130,
-                width: MediaQuery.of(context).size.width * 0.4,
-                // color: Colors.green,
+                // width: 400,
+                width: MediaQuery.of(context).size.width * 0.3,
+                // height: 300,
                 child: RichText(
                     text: TextSpan(children: [
+                  // TextSpan(
+                  //   text: 'Strategizing timelines, ',
+                  //   style: TextStyle(
+                  //     color: const Color.fromARGB(255, 3, 3, 3),
+                  //     fontSize: 50,
+                  //     fontWeight: FontWeight.bold,
+                  //   ),
+                  // ),
                   TextSpan(
-                    text: 'Ensuring ',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 3, 3, 4),
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'legal ',
-                    style: TextStyle(
-                      color: Color(0xff008cf7),
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'and ',
+                    text: 'Allocating resources and ',
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
                       fontSize: 50,
@@ -62,28 +35,20 @@ class phase5 extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: 'data security ',
+                    text: 'budgeting tasks.',
                     style: TextStyle(
-                      color:  Color(0xff008cf7),
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'compliance',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: const Color.fromARGB(255, 255, 231, 11),
                       fontSize: 50,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ]))),
             Padding(
-              padding: EdgeInsetsDirectional.only(top: 30),
+              padding: EdgeInsetsDirectional.fromSTEB(0, 50, 0, 0),
               child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                       Row(
+                         Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -92,7 +57,7 @@ class phase5 extends StatelessWidget {
                                   // color : Colors.blueAccent,
                                   width:
                                       MediaQuery.of(context).size.width * 0.3,
-                                  // height: MediaQuery.of(context).size.height * 0.3,
+                                  // height: MediaQuery.of(context).size.heght * 0.3,
                                   child: Text(
                                       "Conduct stakeholder interviews and surveys to identify client goals, pain points, and requirements for a clear project scope statement.",
                                       style:TextStyle(
@@ -107,8 +72,17 @@ class phase5 extends StatelessWidget {
                         
                       ]),
             )
-          ],
-        )
+          ]),
+        ),
+        Container(
+            // width: 750,
+            // height: 700,
+            width: MediaQuery.of(context).size.width * 0.4,
+            child: ClipRect(
+                child: Image.asset(
+              'assets/images/lowlogo2.png',
+              fit: BoxFit.contain,
+            ))),
       ],
     );
   }

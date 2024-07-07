@@ -1,62 +1,25 @@
+import 'package:flutter/material.dart';
 import 'dart:async';
-import 'dart:math';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/rendering.dart';
-import 'package:nsapps_mod/mobile/appAnime.dart';
-import 'package:nsapps_mod/mobile/lineAnime.dart';
 import 'package:nsapps_mod/mobile/mphase1.dart';
 import 'package:nsapps_mod/mobile/mphase2.dart';
 import 'package:nsapps_mod/mobile/mphase3.dart';
-import 'package:nsapps_mod/mobile/mphase5.dart';
 import 'package:nsapps_mod/mobile/mphase6.dart';
 import 'package:nsapps_mod/mobile/mphase7.dart';
-import 'package:nsapps_mod/mobile/mphaseViewer.dart';
 import 'package:nsapps_mod/mobile/navbar.dart';
-import 'package:nsapps_mod/mobile/test.dart';
-import 'package:nsapps_mod/phases/anime.dart';
-import 'package:nsapps_mod/phases/anime2.dart';
-import 'package:nsapps_mod/phases/anime3.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:nsapps_mod/navbar/navbar.dart';
-import 'package:nsapps_mod/phases/anime5.dart';
-import 'package:nsapps_mod/phases/arrowRt.dart';
-import 'package:nsapps_mod/phases/customWidget.dart';
-import 'package:nsapps_mod/phases/getMeApp.dart';
-import 'package:nsapps_mod/phases/phase2.dart';
-import 'package:nsapps_mod/phases/phase3.dart';
-import 'package:nsapps_mod/phases/phase4Viewer.dart';
-import 'package:nsapps_mod/phases/phase1.dart';
-import 'package:nsapps_mod/phases/snakbar.dart';
-import 'package:nsapps_mod/phases/t.dart';
-import 'package:nsapps_mod/phases/phase5.dart';
-import 'package:nsapps_mod/phases/phase6.dart';
-import 'package:nsapps_mod/phases/phase7.dart';
-import 'package:nsapps_mod/phases/t.dart';
-import 'package:nsapps_mod/phases/t1.dart';
-import 'package:nsapps_mod/phases/parallex.dart';
-import 'package:nsapps_mod/phases/t3.dart';
-import 'package:nsapps_mod/phases/video.dart';
-import 'package:nsapps_mod/testHome.dart';
+import 'package:nsapps_mod/desktop/anime3.dart';
+import 'package:nsapps_mod/desktop/navbar.dart';
+import 'package:nsapps_mod/desktop/phase2.dart';
+import 'package:nsapps_mod/desktop/phase3.dart';
+import 'package:nsapps_mod/desktop/phase4Viewer.dart';
+import 'package:nsapps_mod/desktop/phase1.dart';
+import 'package:nsapps_mod/desktop/phase5.dart';
+import 'package:nsapps_mod/desktop/phase6.dart';
+import 'package:nsapps_mod/desktop/phase7.dart';
+import 'package:nsapps_mod/mobile/t9.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-// class IconItem extends StatefulWidget {
-//   final String appName;
-//   final String imageUrl;
-//   IconItem(this.appName, this.imageUrl);
 
-//   @override
-//   _IconItemState createState() => _IconItemState(imageUrl);
-// }
-
-// class _IconItemState extends State<IconItem> {
-//   bool _isHovered = false;
-//   final String imageUrl;
-
-//   _IconItemState(this.imageUrl);
-
-//   @override
+import 'mobile/mphase8.dart';
 
 class HomeMain extends StatefulWidget {
   final String title;
@@ -104,18 +67,7 @@ class _HomeMainState extends State<HomeMain> {
     startTimer();
     double pRt = MediaQuery.of(context).size.width;
     double pLt = MediaQuery.of(context).size.width;
-    bool _isDrawerOpen = false;
-
-    // void _toggleDrawer() {
-    //   setState(() {
-    //     _isDrawerOpen = !_isDrawerOpen;
-    //   });
-    // }
-
-    // void pr(int prt)
-    // {
-    // print(prt);
-    // }
+   
     if (type == "Mobile") {
       pRt = pRt * 0.02;
     } else if (type == "tablet") {
@@ -134,24 +86,17 @@ class _HomeMainState extends State<HomeMain> {
     return SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Stack(children: [
+        
           Anime3(),
           // App2(),
           // PopupWidget(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Button(),
-              // zero(),
-              // AnimatedTextExample(),
-              // para(initialText: 'Hello, Starkiee!'),
-
+              
               // Navbar
               navbar(),
-              // Lower Body  -> 1st phase
-              // Page1(),
-              // MyCustomWidget(),
-              // HomeScreen(),
-              // Cal(),
+             
               Phase1(pRt, pLt),
 
               SizedBox(
@@ -189,11 +134,7 @@ class _HomeMainState extends State<HomeMain> {
                 IconItem('Prathmikta', 'assets/images/prathmikta.png'),
                 IconItem('DakPad', 'assets/images/da.png'),
               ]),
-              // App()
-              // .animate()
-              //       .fade(delay: 100.ms)
-              //       .slideY(begin: 1,end: 0),
-
+            
               SizedBox(
                 height: 70,
               ),
@@ -227,12 +168,10 @@ class _HomeMainState extends State<HomeMain> {
               ),
 
               phase7(),
-              // VideoPlayerScreen(),
-              // test(),
+             
             ],
           ),
         ]));
-
     // final controller = PageController(initialPage: 1);
   }
 }
@@ -289,35 +228,41 @@ class MobileLy extends StatefulWidget {
   _MobileLyState createState() => _MobileLyState();
 }
 
-// used for kNOW MORE ->
-bool _isKnowMoreHovered = false;
 
 class _MobileLyState extends State<MobileLy> {
+   final ScrollController _scrollController = ScrollController();
+  double _scale = 1.0;
+
+  void _onScroll() {
+    final double offset = _scrollController.position.pixels;
+    setState(() {
+      _scale = (1.0 + (offset / 15500.0)).clamp(1.0, 1.5);  // Clamp the scale value between 1.0 and 1.5
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_onScroll);
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    double _scale = 1.0;
-    final double _maxScale = 5; // Define the maximum scale
-
-    void _onScroll(double scrollOffset) {
-      setState(() {
-        _scale = 1.0 + scrollOffset / 500;
-        if (_scale < 1.0)
-          _scale = 1.0; // Prevent zooming out beyond original size
-        if (_scale > _maxScale)
-          _scale = _maxScale; // Limit the maximum zoom scale
-      });
-    }
     // bool _isDownloadHovered = false;
 
     final _containerHeight = 300.0;
     final _containerwidth = 400.0;
-    final ScrollController _scrollController = ScrollController();
 
-    // void _scrollToTap(int index) {
-    //   _scrollController.animateTo(index * _containerHeight,
-    //       duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
-    // }
 
+  
     String ty = "MOB";
     double pRt = MediaQuery.of(context).size.width;
     double pLt = MediaQuery.of(context).size.width;
@@ -337,250 +282,42 @@ class _MobileLyState extends State<MobileLy> {
     }
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        body: Column(children: [
+        body: Column(
+        children: [
           Navbar(),
+          //  SizedBox(height: 500,),
           Expanded(
-          child : NotificationListener<ScrollNotification>(
-        onNotification: (ScrollNotification notification) {
-          if (notification is ScrollUpdateNotification) {
-            _onScroll(notification.metrics.pixels);
-          }
-          return true;
-        },
-              child: SingleChildScrollView(
-            child: Column(
+          child: SingleChildScrollView(
+            child: 
+            Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Stack(
-                    children: [
-                      Positioned(
-                        child: Container(
-                          // color : Color.fromARGB(255, 136, 118, 153),
-                          // color : Color(0xff5A258A),
-                          color: Color(0xff021024),
-
-                          width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height * 0.91,
-                          child: Column(children: [
-                            SizedBox(
-                              height: 40,
-                            ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.68,
-                              // color : Colors.blueAccent,
-                              alignment: Alignment.center,
-
-                              child: Text(
-                                'Transforming Your Ideas into innovative apps',
-                                style: TextStyle(
-                                  fontFamily: 'roboto',
-                                  fontSize: 16,
-                                  // color: Color(0xffFF576D),
-                                  color: Color(0xff7da0ca),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Container(
-                                width: MediaQuery.of(context).size.width * 0.8,
-                                // color : const Color.fromARGB(255, 68, 255, 130),
-                                child: Text(
-                                  'Your digital wingman, soaring above the ever changing terrain. ',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 36,
-                                      fontFamily: 'roboto',
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                )),
-                            SizedBox(
-                              height: 30,
-                            ),
-                            Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                // color : const Color.fromARGB(255, 215, 68, 255),
-                                child: Text(
-                                  'Turning your vision into innovative apps, we create custom solutions that drive success and faster growth in the digital realm.',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      fontFamily: 'roboto',
-                                      fontWeight: FontWeight.normal,
-                                      color: Colors.white),
-                                )),
-                            SizedBox(
-                              height: 30,
-                            ),
-
-                            HoverEffectExample(),
-
-                            // SizedBox(
-                            //   height: 40,
-                            // ),
-                            // Anime5(),
-                          ]),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 100,
-                      ),
-                    ],
-                  ),
+       
+                Mphase1(),
+                 
 
                   Container(
                     height: 100,
-                    color: Color(0xffFBF7FF),
-                    child: HorizontalListView(),
+                    color: Color(0xff7DA0ca),
+                    child:HorizontalListView() ,
                   ),
 
                   // phase 2
 
-                  Container(
-                    // color : Colors.pink,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                            // color : Colors.red,
-                            child: Text('WHO ARE WE',
-                                style: TextStyle(
-                                    fontFamily: 'roboto',
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.normal,
-                                    color: Color(0xff052659)))),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                            // color : Colors.red,
-                            width: MediaQuery.of(context).size.width * 0.70,
-                            alignment: Alignment.center,
-                            child: Text(
-                                'Building digital products from scratch',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: 'roboto',
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xff052659)))),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                            width: MediaQuery.of(context).size.width * 0.8,
-                            alignment: Alignment.center,
-                            child: Text(
-                                "A passionate team of app developers, we craft powerful tools to fuel your business. We don't just build apps, we guide you through the ever-changing digital landscape, turning your ideas into success stories.",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: 'roboto',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.normal,
-                                    color: Color(0xff052659)))),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        MouseRegion(
-                            onHover: (event) {
-                              setState(() {
-                                _isKnowMoreHovered = true;
-                              });
-                            },
-                            onExit: (event) {
-                              setState(() {
-                                _isKnowMoreHovered = false;
-                              });
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: _isKnowMoreHovered
-                                      ? Colors.deepPurple[100]
-                                      : Colors.deepPurple[200],
-                                  border: Border.all(
-                                      color: Colors.deepPurple, width: 3),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(16.0),
-                                child: Text('KNOW MORE',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontFamily: 'roboto',
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.normal,
-                                        color: Color(0xff021024))),
-                              ),
-                            )),
-                        SizedBox(
-                          height: 30,
-                        ),
-                      ],
-                    ),
-                  ),
+                  Mphase2(),
+                  // ZoomImageScroll(),
+
 
                   // PHASE - 3
 
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 240, 228, 255),
-                          borderRadius: BorderRadius.circular(25)),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 30,
-                          ),
-                          // image
-
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            // height: 60,
-                            child: ClipRect(
-                                child: Image.asset(
-                              'assets/images/client.png',
-                            )),
-                          ),
-
-                          SizedBox(
-                            height: 30,
-                          ),
-
-                          Container(
-                              child: Text('Project scoping',
-                                  style: TextStyle(
-                                      fontFamily: 'roboto',
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xff052659)))),
-
-                          SizedBox(
-                            height: 30,
-                          ),
-
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            child: Text(
-                                'Conduct stakeholder interviews and surveys to identify client goals, pain points, and requirements for a clear project scope statement.',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: 'roboto',
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.normal,
-                                    color: Color(0xff052659))),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                        ],
-                      )),
+                 Mphase3(),
 
                   SizedBox(
                     height: 20,
                   ),
+                  
+                  // Task Management
                   Container(
                       width: MediaQuery.of(context).size.width * 0.9,
                       decoration: BoxDecoration(
@@ -637,6 +374,8 @@ class _MobileLyState extends State<MobileLy> {
                   SizedBox(
                     height: 20,
                   ),
+                  
+                  // Innovative   Apps
                   Container(
                       width: MediaQuery.of(context).size.width * 0.9,
                       decoration: BoxDecoration(
@@ -693,661 +432,22 @@ class _MobileLyState extends State<MobileLy> {
                   SizedBox(
                     height: 30,
                   ),
+                  
+                 // Container which has chip 
+                  Mphase6(),
 
-                  // Container(
-                  //     height: MediaQuery.of(context).size.height * 0.8,
-                  //     // width: MediaQuery.of(context).size.width * 0.95,
-                  //     color: Color(0xff7da0ca),
-                  //     alignment: Alignment.center,
-                  //     child: Stack(
-                  //       alignment: AlignmentDirectional.center,
-                  //       children: [
-                  //         Container(
-                  //             color: Colors.blue,
-                  //             width: MediaQuery.of(context).size.width,
-                  //             height: MediaQuery.of(context).size.height * 0.75,
-                  //             child: ClipRect(
-                  //               child: Image.asset(
-                  //                 'assets/images/design3.png',
-                  //                 fit: BoxFit.fitHeight,
-                  //                 width: double.infinity,
-                  //                 height: double.infinity,
-                  //               ),
-                  //             )),
 
-                  //       ],
-                  //     )),
-
-                  Stack(alignment: Alignment.center, children: [
-                    Container(
-                        color: Color.fromARGB(255, 132, 190, 39),
-                        height: MediaQuery.of(context).size.height,
-                        width: MediaQuery.of(context).size.width * 1.3,
-                        child: ClipRRect(
-                            child: Image.asset('assets/images/designzoom.png',
-                                fit: BoxFit.cover))),
-                    Positioned(
-                        top: 120,
-                        child: Opacity(
-                            opacity: 0.9,
-                            child: Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.75,
-                                alignment: Alignment.center,
-                                // color: Color.fromARGB(255, 255, 255, 255),
-                                child: Stack(
-                                    alignment: Alignment.center,
-                                    children: [
-                                      Column(
-                                        children: [
-                                          SizedBox(
-                                            height: 25,
-                                          ),
-                                          Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.7,
-                                              // color : Colors.purple,
-                                              alignment: Alignment.center,
-                                              child: Text(
-                                                  'Converting your idea into a pillar of the startup community',
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      fontFamily: 'roboto',
-                                                      fontSize: 28,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color:
-                                                          Color(0xff052659)))),
-                                          SizedBox(
-                                            height: 25,
-                                          ),
-                                          Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.6,
-                                              // color : Colors.purple,
-                                              alignment: Alignment.center,
-                                              child: Text(
-                                                  'At Simublade Labs, we build your digital product idea from the ground up and make it an investors’ favorite. A journey that starts and is embedded with emerging technologies.',
-                                                  textAlign: TextAlign.center,
-                                                  style: TextStyle(
-                                                      fontFamily: 'roboto',
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                      color:
-                                                          Color(0xff052659)))),
-                                        ],
-                                      ),
-                                      Positioned(
-                                          top: 330,
-                                          // left : 90,
-                                          child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.33,
-                                              color: Colors.purple,
-                                              alignment: Alignment.center,
-                                              child: Chip(
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0),
-                                                    side: const BorderSide(
-                                                        color: Colors.black),
-                                                  ),
-                                                  avatar: CircleAvatar(
-                                                      child: Container(
-                                                    child: ClipRect(
-                                                        child: Image.asset(
-                                                      'assets/images/manage.png',
-                                                      width: 70,
-                                                      height: 70,
-                                                    )),
-                                                  )),
-                                                  backgroundColor:
-                                                      Color(0xffFEF7FF),
-                                                  label: Text(
-                                                    'Android Studio',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff021024),
-                                                        fontFamily: 'roboto',
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                  )))),
-                                      Positioned(
-                                          top: 380,
-                                          // right : 20,
-                                          child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.8,
-                                              // color : Colors.purple,
-                                              alignment: Alignment.center,
-                                              child: Chip(
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0),
-                                                    side: const BorderSide(
-                                                        color: Colors.black),
-                                                  ),
-                                                  avatar: CircleAvatar(
-                                                      child: Container(
-                                                    child: ClipRect(
-                                                        child: Image.asset(
-                                                      'assets/images/manage.png',
-                                                      width: 70,
-                                                      height: 70,
-                                                    )),
-                                                  )),
-                                                  backgroundColor:
-                                                      Color(0xffFEF7FF),
-                                                  label: Text(
-                                                    'Android Studio',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff021024),
-                                                        fontFamily: 'roboto',
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                  )))),
-                                      Positioned(
-                                          top: 430,
-                                          // left: 20,
-                                          child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.8,
-                                              // color : Colors.purple,
-                                              alignment: Alignment.center,
-                                              child: Chip(
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0),
-                                                    side: const BorderSide(
-                                                        color: Colors.black),
-                                                  ),
-                                                  avatar: CircleAvatar(
-                                                      child: Container(
-                                                    child: ClipRect(
-                                                        child: Image.asset(
-                                                      'assets/images/manage.png',
-                                                      width: 70,
-                                                      height: 70,
-                                                    )),
-                                                  )),
-                                                  backgroundColor:
-                                                      Color(0xffFEF7FF),
-                                                  label: Text(
-                                                    'AR/VR',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff021024),
-                                                        fontFamily: 'roboto',
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                  )))),
-                                      Positioned(
-                                          top: 480,
-                                          // left: 40,
-                                          child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.8,
-                                              // color : Colors.purple,
-                                              alignment: Alignment.center,
-                                              child: Chip(
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0),
-                                                    side: const BorderSide(
-                                                        color: Colors.black),
-                                                  ),
-                                                  avatar: CircleAvatar(
-                                                      child: Container(
-                                                    child: ClipRect(
-                                                        child: Image.asset(
-                                                      'assets/images/manage.png',
-                                                      width: 70,
-                                                      height: 70,
-                                                    )),
-                                                  )),
-                                                  backgroundColor:
-                                                      Color(0xffFEF7FF),
-                                                  label: Text(
-                                                    'Artificial Intelligence',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff021024),
-                                                        fontFamily: 'roboto',
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                  )))),
-                                      Positioned(
-                                          top: 530,
-                                          // left: -100,
-                                          child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.8,
-                                              // color : Colors.purple,
-                                              alignment: Alignment.center,
-                                              child: Chip(
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0),
-                                                    side: const BorderSide(
-                                                        color: Colors.black),
-                                                  ),
-                                                  avatar: CircleAvatar(
-                                                      child: Container(
-                                                    child: ClipRect(
-                                                        child: Image.asset(
-                                                      'assets/images/manage.png',
-                                                      width: 70,
-                                                      height: 70,
-                                                    )),
-                                                  )),
-                                                  backgroundColor:
-                                                      Color(0xffFEF7FF),
-                                                  label: Text(
-                                                    'Internet of Things',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff021024),
-                                                        fontFamily: 'roboto',
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                  )))),
-                                      Positioned(
-                                          top: 580,
-                                          // left: 100,
-                                          child: Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.8,
-                                              // color : Colors.purple,
-                                              alignment: Alignment.center,
-                                              child: Chip(
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0),
-                                                    side: const BorderSide(
-                                                        color: Colors.black),
-                                                  ),
-                                                  avatar: CircleAvatar(
-                                                      child: Container(
-                                                    child: ClipRect(
-                                                        child: Image.asset(
-                                                      'assets/images/manage.png',
-                                                      width: 70,
-                                                      height: 70,
-                                                    )),
-                                                  )),
-                                                  backgroundColor:
-                                                      Color(0xffFEF7FF),
-                                                  label: Text(
-                                                    'Machine Learning',
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xff021024),
-                                                        fontFamily: 'roboto',
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal),
-                                                  )))),
-                                    ])))),
-                  ]),
-
-                  Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height,
-                        // color: const Color.fromARGB(255, 0, 38, 255),
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width * 0.93,
-                        height: MediaQuery.of(context).size.height * 0.98,
-                        // margin : EdgeInsets.all(30),
-                        decoration: BoxDecoration(
-                          // color: Color.fromARGB(255, 115, 25, 25),
-                          borderRadius: BorderRadius.circular(30),
-                          border: Border.all(color: Colors.pink),
-                        ),
-                        child: Column(
-                          children: [
-                            //image
-                            Container(
-                                // color :Colors.purple,
-                                child: ClipRect(
-                              child: Image.asset(
-                                'assets/images/cup.png',
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.17,
-                              ),
-                            )),
-                            //text
-
-                            Container(
-                                // color :Colors.purple,
-                                child: Text('Our Apps',
-                                    style: TextStyle(
-                                        color: Color(0xff062659),
-                                        fontFamily: 'roboto',
-                                        fontSize: 28,
-                                        fontWeight: FontWeight.bold))),
-
-                            // text
-                            SizedBox(
-                              height: 30,
-                            ),
-
-                            Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                // color :Colors.purple,
-                                alignment: Alignment.center,
-                                child: Text(
-                                    textAlign: TextAlign.center,
-                                    'Our commitment to excellence and innovation has helped us become the leading digital transformation agency in Texas.',
-                                    style: TextStyle(
-                                        color: Color(0xff052659),
-                                        fontFamily: 'roboto',
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.normal))),
-
-                            SizedBox(
-                              height: 30,
-                            ),
-                            //list view
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.84,
-                              height: MediaQuery.of(context).size.height * 0.6,
-                              // color: Colors.purple,
-                              alignment: Alignment.center,
-                              child: HomeScreen(),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
+                // Conatiner with verticalcrollView, 
+                  Mphase7(),
 
                   SizedBox(
                     height: 30,
                   ),
-                  Container(
-                      height: MediaQuery.of(context).size.height * 0.58,
-                      width: MediaQuery.of(context).size.width * 0.95,
-                      decoration: BoxDecoration(
-                          color: Color(0xffFCECFB),
-                          borderRadius: BorderRadius.circular(30)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 20),
-                            child: Container(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.27,
-                                width: MediaQuery.of(context).size.width * 0.87,
-                                decoration: BoxDecoration(
-                                    color: Color(0xffFEDEFD),
-                                    borderRadius: BorderRadius.circular(30)),
-                                child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        30, 20, 0, 0),
-                                    child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.3,
-                                              decoration: BoxDecoration(
-                                                  // color : const Color.fromARGB(255, 223, 178, 231),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          30)),
-                                              child: Text('BRIEF',
-                                                  style: TextStyle(
-                                                      color: Color(0xff052659),
-                                                      fontFamily: 'roboto',
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.bold))),
-                                          SizedBox(
-                                            height: 25,
-                                          ),
-                                          Container(
-                                              width: MediaQuery.of(context)
-                                                      .size
-                                                      .width *
-                                                  0.7,
-                                              decoration: BoxDecoration(
-                                                  // color : const Color.fromARGB(255, 223, 178, 231),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          30)),
-                                              child: Text(
-                                                  'DoughFi and us revolutionized high-risk business banking with a Stellar Network blockchain platform, featuring P2P merchant transfers, QR code lookups, and live chat support, simplifying transactions and enhancing user satisfaction.',
-                                                  style: TextStyle(
-                                                      color: Color(0xff052659),
-                                                      fontFamily: 'roboto',
-                                                      fontSize: 16,
-                                                      fontWeight:
-                                                          FontWeight.normal))),
-                                        ]))),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 40),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                      //  height: MediaQuery.of(context).size.height * 0.4,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.3,
-                                      decoration: BoxDecoration(
-                                          // color : const Color.fromARGB(255, 223, 178, 231),
-                                          borderRadius:
-                                              BorderRadius.circular(30)),
-                                      child: Text('TECH STACK',
-                                          style: TextStyle(
-                                              color: Color(0xff052659),
-                                              fontFamily: 'roboto',
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold))),
-                                  SizedBox(
-                                    height: 40,
-                                  ),
-                                  Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        // Container(
-                                        //     //  height: MediaQuery.of(context).size.height * 0.4,
-                                        //     width:
-                                        //         MediaQuery.of(context).size.width * 0.3,
-                                        //     decoration: BoxDecoration(
-                                        //         // color : const Color.fromARGB(255, 223, 178, 231),
-                                        //         borderRadius:
-                                        //             BorderRadius.circular(30)),
-                                        //     child: ClipRect(
-                                        //         child: Image.asset(
-                                        //             'assets/images/manage.png',
-                                        //             fit: BoxFit.contain))),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              color: const Color.fromARGB(
-                                                  255, 223, 178, 231),
-                                              borderRadius:
-                                                  BorderRadius.circular(30)),
-                                          child: Icon(
-                                            Icons.flutter_dash,
-                                            size: 50.0,
-                                            color: Colors.blue,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 30,
-                                        ),
 
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              color: const Color.fromARGB(
-                                                  255, 223, 178, 231),
-                                              borderRadius:
-                                                  BorderRadius.circular(30)),
-                                          child: Icon(
-                                            Icons.microwave_sharp,
-                                            size: 50.0,
-                                            color: Colors.blue,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 30,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              color: const Color.fromARGB(
-                                                  255, 223, 178, 231),
-                                              borderRadius:
-                                                  BorderRadius.circular(30)),
-                                          child: Icon(
-                                            Icons.apple,
-                                            size: 50.0,
-                                            color: Colors.blue,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 30,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              color: const Color.fromARGB(
-                                                  255, 223, 178, 231),
-                                              borderRadius:
-                                                  BorderRadius.circular(30)),
-                                          child: Icon(
-                                            Icons.android,
-                                            size: 50.0,
-                                            color: Colors.blue,
-                                          ),
-                                        ),
-                                      ]),
-                                  SizedBox(
-                                    height: 40,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 10),
-                                        child: Container(
-                                            alignment: Alignment.center,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.2,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                                border: Border.all(
-                                                    color: Color.fromARGB(
-                                                        255, 255, 0, 0),
-                                                    width: 1.5)),
-                                            child: Text('Android',
-                                                style: TextStyle(
-                                                    color: Color(0xff052659),
-                                                    fontFamily: 'roboto',
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.bold))),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 10),
-                                        child: Container(
-                                            alignment: Alignment.center,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.2,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                                border: Border.all(
-                                                    color: Color.fromARGB(
-                                                        255, 255, 0, 0),
-                                                    width: 1.5)),
-                                            child: Text('VS CODE',
-                                                style: TextStyle(
-                                                    color: Color(0xff052659),
-                                                    fontFamily: 'roboto',
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.bold))),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(right: 10),
-                                        child: Container(
-                                            alignment: Alignment.center,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.2,
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(20),
-                                                border: Border.all(
-                                                    color: Color.fromARGB(
-                                                        255, 255, 0, 0),
-                                                    width: 1.5)),
-                                            child: Text('Flutter',
-                                                style: TextStyle(
-                                                    color: Color(0xff052659),
-                                                    fontFamily: 'roboto',
-                                                    fontSize: 16,
-                                                    fontWeight:
-                                                        FontWeight.bold))),
-                                      ),
-                                    ],
-                                  ),
-                                ]),
-                          ),
-                        ],
-                      )),
+                  // Pink Container
+                  Mphase8(),
+
+                  
                   SizedBox(
                     height: 30,
                   ),
@@ -1362,554 +462,14 @@ class _MobileLyState extends State<MobileLy> {
                   SizedBox(
                     height: 150,
                   ),
+
+                  
                  
-                  Container(
-      
-            child: Stack(
-          children: [
-          
-            SingleChildScrollView(
-            child :
-            Container(
-            height:MediaQuery.of(context).size.height * 2.8,
-            color:Colors.pink,
-            ),
-            ),
-
-            Positioned(
-              top: 0,
-              left: 0,
-              right: 0,
-              child: Transform.scale(
-                scale: _scale,
-                 child: Image.network(
-                  'assets/images/clu.jpg',
-                  fit: BoxFit.cover,
-                  height: 300,
-                  alignment: Alignment.topCenter,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-
-                ]),
-          )))
+                    ]),
+          ))
         ]));
   }
 
-  void _isKnowHovered(bool ishov) {
-    setState(() {
-      _isKnowMoreHovered = ishov;
-    });
-  }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // color: Colors.brown,
-      height: MediaQuery.of(context).size.height * 2,
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Container(
-          color: const Color.fromARGB(255, 255, 255, 255),
-          width: MediaQuery.of(context).size.width * 0.4,
-          // height : MediaQuery.of(context).size.height * 2,
-          child: ListView(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              CarouselSlider(
-                  items: [
-                    Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromARGB(255, 212, 230, 255),
-                        ),
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height: 100,
-                                margin: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      'assets/images/cprath.png',
-                                    ),
-                                    fit: BoxFit.contain,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  // height: 80,
-                                  // color:Colors.purple,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text("Prathmikta App",
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold))),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.28,
-                                  // height: 40,
-                                  // color:Colors.purple,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text(
-                                      "Revolutionizing travel planning: Our app simplifies booking.",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal))),
-                            ])),
-                    Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromARGB(255, 212, 230, 255),
-                        ),
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height: 100,
-                                margin: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      'assets/images/ciris.png',
-                                    ),
-                                    fit: BoxFit.contain,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  // height: 80,
-                                  // color:Colors.purple,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text("Iris App",
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold))),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.28,
-                                  // height: 40,
-                                  // color:Colors.purple,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text(
-                                      "Revolutionizing travel planning: Our app simplifies booking.",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal))),
-                            ])),
-                    Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromARGB(255, 212, 230, 255),
-                        ),
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height: 100,
-                                margin: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      'assets/images/chome.png',
-                                    ),
-                                    fit: BoxFit.contain,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  // height: 80,
-                                  // color:Colors.purple,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text("Home App",
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold))),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.28,
-                                  // height: 40,
-                                  // color:Colors.purple,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text(
-                                      "Revolutionizing travel planning: Our app simplifies booking.",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal))),
-                            ])),
-                    Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromARGB(255, 212, 230, 255),
-                        ),
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height: 100,
-                                margin: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      'assets/images/cdak.png',
-                                    ),
-                                    fit: BoxFit.contain,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  // height: 80,
-                                  // color:Colors.purple,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text("Dak App",
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold))),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.28,
-                                  // height: 40,
-                                  // color:Colors.purple,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text(
-                                      "Revolutionizing travel planning: Our app simplifies booking.",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal))),
-                            ])),
-                  ],
-                  options: CarouselOptions(
-                    height: MediaQuery.of(context).size.height * 0.55,
-                    // width: MediaQuery.of(context).size.width,
-                    scrollDirection: Axis.vertical,
-                    aspectRatio: 16 / 8,
-                    viewportFraction: 0.6,
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    enlargeCenterPage: true,
-                    enlargeFactor: 0.5,
-                    reverse: true,
-                  ))
-            ],
-          ),
-        ),
-        Container(
-          color: const Color.fromARGB(255, 255, 255, 255),
-          width: MediaQuery.of(context).size.width * 0.4,
-          // height : MediaQuery.of(context).size.height * 2,
-          child: ListView(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              CarouselSlider(
-                  items: [
-                    Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromARGB(255, 212, 230, 255),
-                        ),
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height: 100,
-                                margin: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      'assets/images/csama.png',
-                                    ),
-                                    fit: BoxFit.contain,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  // height: 80,
-                                  // color:Colors.purple,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text("Samadhan App",
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold))),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.28,
-                                  // height: 40,
-                                  // color:Colors.purple,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text(
-                                      "Revolutionizing travel planning: Our app simplifies booking.",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal))),
-                            ])),
-                    // SizedBox(height: 10,),
-
-                    // )
-                    // ]
-                    // )
-
-                    Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromARGB(255, 212, 230, 255),
-                        ),
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height: 100,
-                                margin: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      'assets/images/csamaksh.png',
-                                    ),
-                                    fit: BoxFit.contain,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  // height: 80,
-                                  // color:Colors.purple,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text("Samaksh App",
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold))),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.28,
-                                  // height: 40,
-                                  // color:Colors.purple,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text(
-                                      "Revolutionizing travel planning: Our app simplifies booking.",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal))),
-                            ])),
-                    Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromARGB(255, 212, 230, 255),
-                        ),
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height: 100,
-                                margin: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      'assets/images/ctaskflow.png',
-                                    ),
-                                    fit: BoxFit.contain,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  // height: 80,
-                                  // color:Colors.purple,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text("Taskflow App",
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold))),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.28,
-                                  // height: 40,
-                                  // color:Colors.purple,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text(
-                                      "Revolutionizing travel planning: Our app simplifies booking.",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal))),
-                            ])),
-                    Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromARGB(255, 212, 230, 255),
-                        ),
-                        height: MediaQuery.of(context).size.height * 0.4,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
-                                height: 100,
-                                margin: EdgeInsets.all(8),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  image: DecorationImage(
-                                    image: NetworkImage(
-                                      'assets/images/caspire.png',
-                                    ),
-                                    fit: BoxFit.contain,
-                                  ),
-                                  borderRadius: BorderRadius.circular(25),
-                                ),
-                              ),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.25,
-                                  // height: 80,
-                                  // color:Colors.purple,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text("Aspire App",
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold))),
-                              Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.28,
-                                  // height: 40,
-                                  // color:Colors.purple,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.all(8),
-                                  child: Text(
-                                      "Revolutionizing travel planning: Our app simplifies booking.",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(0xff062659),
-                                          fontFamily: 'roboto',
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.normal))),
-                            ])),
-                  ],
-                  options: CarouselOptions(
-                    height: MediaQuery.of(context).size.height * 0.55,
-                    // width: MediaQuery.of(context).size.width,
-                    scrollDirection: Axis.vertical,
-                    aspectRatio: 16 / 8,
-                    viewportFraction: 0.6,
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 3),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    enlargeCenterPage: true,
-                    enlargeFactor: 0.5,
-                    reverse: false,
-                  ))
-            ],
-          ),
-        ),
-      ]),
-    );
-  }
-}

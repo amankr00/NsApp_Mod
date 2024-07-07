@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nsapps_mod/phases/anime2.dart';
 
 class phase6 extends StatelessWidget {
   @override

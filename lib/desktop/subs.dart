@@ -5,6 +5,7 @@ class My extends StatelessWidget {
   My(this._nameController, this._numberController);
   
   final TextEditingController _nameController ;
+  // ignore: unused_field
   final TextEditingController _numberController;
 
   void _showToast1(BuildContext context, {required String data}) {

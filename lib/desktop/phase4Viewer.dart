@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:nsapps_mod/phases/phase4.dart';
+import 'package:nsapps_mod/desktop/phase4.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Phase4Viewer extends StatefulWidget {

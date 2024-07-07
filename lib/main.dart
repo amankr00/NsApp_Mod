@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nsapps_mod/desktop/t3.dart';
 import 'package:nsapps_mod/home.dart';
-import 'package:nsapps_mod/phases/anime2.dart';
-import 'package:nsapps_mod/phases/t3.dart';
-import 'package:nsapps_mod/testHome.dart';
-import 'package:gif_view/gif_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {

@@ -1,12 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:nsapps_mod/phases/anime4.dart';
-import 'package:nsapps_mod/navbar/navbar.dart';
-import 'package:nsapps_mod/phases/anime5.dart';
-import 'package:nsapps_mod/phases/getMeApp.dart';
-import 'package:nsapps_mod/phases/subs.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:nsapps_mod/desktop/anime5.dart';
+import 'package:nsapps_mod/desktop/getMeApp.dart';
 
 class Phase1 extends StatefulWidget {
   final double pRt;
