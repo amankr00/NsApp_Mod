@@ -6,7 +6,6 @@ import 'package:nsapps_mod/mobile/mphase3.dart';
 import 'package:nsapps_mod/mobile/mphase6.dart';
 import 'package:nsapps_mod/mobile/mphase7.dart';
 import 'package:nsapps_mod/mobile/navbar.dart';
-import 'package:nsapps_mod/desktop/anime3.dart';
 import 'package:nsapps_mod/desktop/navbar.dart';
 import 'package:nsapps_mod/desktop/phase2.dart';
 import 'package:nsapps_mod/desktop/phase3.dart';
@@ -15,7 +14,7 @@ import 'package:nsapps_mod/desktop/phase1.dart';
 import 'package:nsapps_mod/desktop/phase5.dart';
 import 'package:nsapps_mod/desktop/phase6.dart';
 import 'package:nsapps_mod/desktop/phase7.dart';
-import 'package:nsapps_mod/mobile/t9.dart';
+import 'package:nsapps_mod/mobile/applistHorizontal.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -67,7 +66,7 @@ class _HomeMainState extends State<HomeMain> {
     startTimer();
     double pRt = MediaQuery.of(context).size.width;
     double pLt = MediaQuery.of(context).size.width;
-   
+
     if (type == "Mobile") {
       pRt = pRt * 0.02;
     } else if (type == "tablet") {
@@ -86,17 +85,12 @@ class _HomeMainState extends State<HomeMain> {
     return SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Stack(children: [
-        
-          Anime3(),
-          // App2(),
-          // PopupWidget(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              
               // Navbar
               navbar(),
-             
+
               Phase1(pRt, pLt),
 
               SizedBox(
@@ -134,7 +128,7 @@ class _HomeMainState extends State<HomeMain> {
                 IconItem('Prathmikta', 'assets/images/prathmikta.png'),
                 IconItem('DakPad', 'assets/images/da.png'),
               ]),
-            
+
               SizedBox(
                 height: 70,
               ),
@@ -168,7 +162,6 @@ class _HomeMainState extends State<HomeMain> {
               ),
 
               phase7(),
-             
             ],
           ),
         ]));
@@ -228,15 +221,15 @@ class MobileLy extends StatefulWidget {
   _MobileLyState createState() => _MobileLyState();
 }
 
-
 class _MobileLyState extends State<MobileLy> {
-   final ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   double _scale = 1.0;
 
   void _onScroll() {
     final double offset = _scrollController.position.pixels;
     setState(() {
-      _scale = (1.0 + (offset / 15500.0)).clamp(1.0, 1.5);  // Clamp the scale value between 1.0 and 1.5
+      _scale = (1.0 + (offset / 15500.0))
+          .clamp(1.0, 1.5); // Clamp the scale value between 1.0 and 1.5
     });
   }
 
@@ -253,17 +246,14 @@ class _MobileLyState extends State<MobileLy> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     // bool _isDownloadHovered = false;
 
     final _containerHeight = 300.0;
     final _containerwidth = 400.0;
-    double _scale2 = 1.0; 
+    double _scale2 = 1.0;
 
-
-  
     String ty = "MOB";
     double pRt = MediaQuery.of(context).size.width;
     double pLt = MediaQuery.of(context).size.width;
@@ -283,198 +273,182 @@ class _MobileLyState extends State<MobileLy> {
     }
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        body: Column(
-        children: [
+        body: Column(children: [
           Navbar(),
           //  SizedBox(height: 500,),
           Expanded(
-          child : NotificationListener<ScrollUpdateNotification>(
-        onNotification: (notification) {
-          setState(() {
-            // Adjust scale based on scroll direction and magnitude
-            _scale2 = 1.0 - notification.metrics.pixels / 1000;
-            if (_scale2 < 0.5) {
-              _scale2 = 0.5; // Limit minimum scale
-            }
-          });
-          return true;
-        },
-          child: SingleChildScrollView(
-            child: 
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-       
-                Mphase1(),
-                 
-
-                  Container(
-                    height: 100,
-                    color: Color(0xff7DA0ca),
-                    child:HorizontalListView() ,
-                  ),
-
-                  // phase 2
-
-                  Mphase2(),
-                  // ZoomImageScroll(),
-
-
-                  // PHASE - 3
-
-                 Mphase3(),
-
-                  SizedBox(
-                    height: 20,
-                  ),
-                  
-                  // Task Management
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      decoration: BoxDecoration(
-                          color: Color(0xffFFDADA),
-                          borderRadius: BorderRadius.circular(25)),
-                      child: Column(
+              child: NotificationListener<ScrollUpdateNotification>(
+                  onNotification: (notification) {
+                    setState(() {
+                      // Adjust scale based on scroll direction and magnitude
+                      _scale2 = 1.0 - notification.metrics.pixels / 1000;
+                      if (_scale2 < 0.5) {
+                        _scale2 = 0.5; // Limit minimum scale
+                      }
+                    });
+                    return true;
+                  },
+                  child: SingleChildScrollView(
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          Mphase1(),
+
+                          Container(
+                            height: 100,
+                            color: Color(0xff7DA0ca),
+                            child: HorizontalListView(),
+                          ),
+
+                          // phase 2
+
+                          Mphase2(),
+                          // ZoomImageScroll(),
+
+                          // PHASE - 3
+
+                          Mphase3(),
+
                           SizedBox(
                             height: 20,
                           ),
-                          // image
 
+                          // Task Management
                           Container(
-                            width: MediaQuery.of(context).size.width * 0.65,
-                            // color : const Color.fromARGB(255, 182, 233, 30),
-                            height: 180,
-                            child: ClipRect(
-                                child: Image.asset(
-                              'assets/images/manage.png',
-                              fit : BoxFit.fitWidth
-                            )),
+                              width: MediaQuery.of(context).size.width * 0.9,
+                              decoration: BoxDecoration(
+                                  color: Color(0xffFFDADA),
+                                  borderRadius: BorderRadius.circular(25)),
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  // image
+
+                                  Container(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.65,
+                                    // color : const Color.fromARGB(255, 182, 233, 30),
+                                    height: 180,
+                                    child: ClipRect(
+                                        child: Image.asset(
+                                            'assets/images/manage.png',
+                                            fit: BoxFit.fitWidth)),
+                                  ),
+
+                                  // SizedBox(
+                                  //   height: 30,
+                                  // ),
+
+                                  Container(
+                                      child: Text('Task management',
+                                          style: TextStyle(
+                                              fontFamily: 'roboto',
+                                              fontSize: 24,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color(0xff052659)))),
+
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.7,
+                                    child: Text(
+                                        'Allocating resources and budgeting tasks involves effectively distributing available assets and financial planning to achieve project goals efficiently.',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontFamily: 'roboto',
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.normal,
+                                            color: Color(0xff052659))),
+                                  ),
+                                  SizedBox(
+                                    height: 40,
+                                  ),
+                                ],
+                              )),
+                          SizedBox(
+                            height: 20,
                           ),
 
+                          // Innovative   Apps
+                          Container(
+                              width: MediaQuery.of(context).size.width * 0.9,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 243, 234, 251),
+                                  borderRadius: BorderRadius.circular(25)),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
+                                    height: 200,
+                                    // color : Colors.pink,
+                                    child: ClipRect(
+                                        child: Image.asset(
+                                            'assets/images/inno.png',
+                                            fit: BoxFit.cover)),
+                                  ),
+
+                                  // SizedBox(
+                                  //   height: 30,
+                                  // ),
+
+                                  Container(
+                                      child: Text('Innovative technology',
+                                          style: TextStyle(
+                                              fontFamily: 'roboto',
+                                              fontSize: 24,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color(0xff052659)))),
+
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+
+                                  Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.7,
+                                    child: Text(
+                                        'Conduct stakeholder interviews and surveys to identify client goals, pain points, and requirements for a clear project scope statement.',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontFamily: 'roboto',
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.normal,
+                                            color: Color(0xff052659))),
+                                  ),
+                                  SizedBox(
+                                    height: 40,
+                                  ),
+                                ],
+                              )),
                           // SizedBox(
                           //   height: 30,
                           // ),
 
-                          Container(
-                              child: Text('Task management',
-                                  style: TextStyle(
-                                      fontFamily: 'roboto',
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xff052659)))),
+                          // Container which has chip
+                          Mphase6(),
+
+                          // Conatiner with verticalcrollView,
+                          Mphase7(),
 
                           SizedBox(
                             height: 30,
                           ),
 
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            child: Text(
-                                'Allocating resources and budgeting tasks involves effectively distributing available assets and financial planning to achieve project goals efficiently.',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: 'roboto',
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.normal,
-                                    color: Color(0xff052659))),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                        ],
-                      )),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  
-                  // Innovative   Apps
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 243, 234, 251),
-                          borderRadius: BorderRadius.circular(25)),
-                      child: Column(
-                        children: [
-                        
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.8,
-                            height:200,
-                            // color : Colors.pink,
-                            child: ClipRect(
-                                child: Image.asset(
-                              'assets/images/inno.png',
-                              fit : BoxFit.cover
-                            )),
-                          ),
-
-                          // SizedBox(
-                          //   height: 30,
-                          // ),
-
-                          Container(
-                              child: Text('Innovative technology',
-                                  style: TextStyle(
-                                      fontFamily: 'roboto',
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xff052659)))),
+                          // Pink Container
+                          Mphase8(),
 
                           SizedBox(
                             height: 30,
                           ),
-
-                          Container(
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            child: Text(
-                                'Conduct stakeholder interviews and surveys to identify client goals, pain points, and requirements for a clear project scope statement.',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: 'roboto',
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.normal,
-                                    color: Color(0xff052659))),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                        ],
-                      )),
-                  // SizedBox(
-                  //   height: 30,
-                  // ),
-                  
-                 // Container which has chip 
-                  Mphase6(),
-
-
-                // Conatiner with verticalcrollView, 
-                  Mphase7(),
-
-                  SizedBox(
-                    height: 30,
-                  ),
-
-                  // Pink Container
-                  Mphase8(),
-
-                  
-                  SizedBox(
-                    height: 30,
-                  ),
-
-                    ]
-                    ),
-          
-          )
-          )
-          )
-        
-        ])
-        );
+                        ]),
+                  )))
+        ]));
   }
-
 }
-
-

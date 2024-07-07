@@ -2,9 +2,8 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:nsapps_mod/desktop/t1.dart';
 import 'package:nsapps_mod/home.dart';
-import 'package:nsapps_mod/test2.dart';
+import 'package:nsapps_mod/automaticScroll.dart';
 
 class Mphase7 extends StatefulWidget {
   @override

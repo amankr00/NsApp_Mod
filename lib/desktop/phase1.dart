@@ -44,27 +44,56 @@ class _Phase1State extends State<Phase1> {
                     child: Container(
                       // width: 500,
                       // height: 140,
+                      // color : Colors.pink,
                       width: MediaQuery.of(context).size.width * 0.35,
-                      height: MediaQuery.of(context).size.height * 0.27,
+                      height: MediaQuery.of(context).size.height * 0.12,
                       // height: MediaQuery.of(context).size.height * 0.4,
                       // ${pRt}   ${MediaQuery.of(context).size.width }
-                      child: Text(
-                        'Cutting-edge bespoke mobile and web app development services. ',
-                        style: TextStyle(
-                            fontSize: 60,
-                            fontFamily: 'ArchivoBlack-Regular',
-                            letterSpacing: 0,
-                            fontWeight: FontWeight.w100,
-                            decoration: TextDecoration.none,
-                            color: const Color.fromARGB(255, 0, 0, 0),
-                          ),
+                      child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Think an app, we ',
+                          style : TextStyle(
+                          fontSize: 50,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        )
                         ),
+                        TextSpan(
+                          text: 'code',
+                          style : TextStyle(
+                          fontSize: 50,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          color: Color.fromARGB(255, 0, 255, 68),
+                        )
+                        ),
+                        TextSpan(
+                          text: ' your imagination.',
+                          style : TextStyle(
+                          fontSize: 50,
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        )
+                        )
+                      ],
+                    ),
+                  )
                       )
                           .animate()
                           .fade(delay: 100.ms)
                           .slideX(begin: -5, end: 0)
                           .shake(),
                     ),
+
+                    SizedBox(
+                    height: 30,),
                 
 
                   Container(

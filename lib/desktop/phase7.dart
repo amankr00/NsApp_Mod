@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nsapps_mod/desktop/anime.dart';
 import 'package:nsapps_mod/desktop/scrollview.dart';
 
 class phase7 extends StatelessWidget {

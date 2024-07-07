@@ -5,9 +5,10 @@ class navbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+    alignment: Alignment.center,
         height: 80,
         decoration: BoxDecoration(
-          // color: Colors.yellow,
+        // color :Colors.yellow,
           border: Border(
             bottom: BorderSide(
               color: Color.fromARGB(
@@ -17,11 +18,12 @@ class navbar extends StatelessWidget {
           ),
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-            width: MediaQuery.of(context).size.width * 0.3,
+            width: MediaQuery.of(context).size.width * 0.117,
+            // color : Colors.pink,
               child: Text(
                 'NS APPS INNOVATIONS',
                 style: TextStyle(
@@ -33,44 +35,7 @@ class navbar extends StatelessWidget {
                     color: const Color.fromARGB(255, 0, 0, 0)),
               ),
             ),
-            Container(
-                // Navbar Open Framer
-                // width: MediaQuery.of(context).size.width * 0.11,
-                width: 200,
-                // height: MediaQuery.of(context).size.height * 0.06,
-                decoration: BoxDecoration(
-                  color: Color(0xFFff5700),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-               child : Padding(padding: EdgeInsets.all(16),
-                  child: Row(
-                    // Image and text
-
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-
-                    children: [
-
-                      ClipRRect(
-                          child: Image.asset(
-                        'assets/images/play.png',
-                        width: 40,
-                        height: 40,
-                      )),
-                      Container(
-                      // width: MediaQuery.of(context).size.width * 0.2,
-                        child: Text('Open Play Store',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: 'Raleway',
-                              letterSpacing: 0,
-                              fontWeight: FontWeight.w500,
-                              decoration: TextDecoration.none,
-                              color: Color.fromARGB(255, 255, 255, 255),
-                            ))),
-                    ],
-                  ),
-                  )
-                )
+            
           ],
         ));
   }
