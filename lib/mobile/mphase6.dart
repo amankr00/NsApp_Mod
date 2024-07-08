@@ -71,7 +71,7 @@ class _Mphase6State extends State<Mphase6> {
                     
                     Positioned(
                         top: 360,
-                        right : 280,
+                        right : 230,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -125,7 +125,7 @@ class _Mphase6State extends State<Mphase6> {
                             )))),
                     Positioned(
                         top: 430,
-                        left : 47,
+                        left : 50,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -179,7 +179,7 @@ class _Mphase6State extends State<Mphase6> {
                             )))),
                     Positioned(
                         top: 500,
-                        right : 200,
+                        right : 180,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -197,7 +197,7 @@ class _Mphase6State extends State<Mphase6> {
                             )),
                             label: Padding(padding: EdgeInsets.all(5),
                             child:  Text(
-                              'Visual Studio Code Editor',
+                              'Visual Studio Code',
                               style: TextStyle(
                                   color: Color(0xff021024),
                                   fontFamily: 'roboto',
@@ -206,7 +206,7 @@ class _Mphase6State extends State<Mphase6> {
                             )))),
                     Positioned(
                         top: 500,
-                        left :280,
+                        left :250,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(

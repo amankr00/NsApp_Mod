@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomeMain(title: 'Ns',),
+        // '/': (context) => MyLot(),
         // '/' : (context) => TapToScroll(),
         // '/' : (context) => ZoomOnScrollContainer(),
         

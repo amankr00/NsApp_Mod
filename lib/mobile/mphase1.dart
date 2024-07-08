@@ -24,11 +24,10 @@ class _Mphase1State extends State<Mphase1> {
                           color: Color(0xff021024),
 
                           width: MediaQuery.of(context).size.width,
-                          height: MediaQuery.of(context).size.height * 0.92,
+                          height: MediaQuery.of(context).size.height * 0.91,
                           child: Column(children: [
-                            const SizedBox(
-                              height: 40,
-                            ),
+                          SizedBox(
+                          height: 30,),                            
                             Container(
                               width: MediaQuery.of(context).size.width * 0.68,
                               // color : Colors.blueAccent,
@@ -44,8 +43,8 @@ class _Mphase1State extends State<Mphase1> {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 30,
+                            SizedBox(
+                              height: 20,
                             ),
                             // ignore: duplicate_ignore
                             // ignore: sized_box_for_whitespace
@@ -62,7 +61,7 @@ class _Mphase1State extends State<Mphase1> {
                                       color: Colors.white),
                                 )),
                             const SizedBox(
-                              height: 30,
+                              height: 20,
                             ),
                             Container(
                                 width: MediaQuery.of(context).size.width * 0.7,
@@ -77,7 +76,7 @@ class _Mphase1State extends State<Mphase1> {
                                       color: Colors.white),
                                 )),
                             const SizedBox(
-                              height: 30,
+                              height: 20,
                             ),
 
                             HoverEffectExample(),
