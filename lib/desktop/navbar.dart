@@ -22,7 +22,7 @@ class navbar extends StatelessWidget {
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-            width: MediaQuery.of(context).size.width * 0.117,
+            width: MediaQuery.of(context).size.width * 0.13,
             // color : Colors.pink,
               child: Text(
                 'NS APPS INNOVATIONS',

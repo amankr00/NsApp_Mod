@@ -2,18 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class HoverEffectExample extends StatefulWidget {
+  // late bool hovMD;
+  final bool hovMD;
+
+  HoverEffectExample(this.hovMD);
+
   @override
-  _HoverEffectExampleState createState() => _HoverEffectExampleState();
+  _HoverEffectExampleState createState() => _HoverEffectExampleState(hovMD);
 }
 
 bool h = false;
 
 class _HoverEffectExampleState extends State<HoverEffectExample> {
-  
+  final bool hovMD;
+
+  _HoverEffectExampleState(this.hovMD);
+
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _numberController = TextEditingController();
-  bool  isDownloadHovered = false;
- 
+  bool isDownloadHovered = false;
+
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -24,56 +32,47 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
             onTap: () {
               if (h == true) {
                 // stark();
-                
               }
-              // showDialog(
-              //   context: context,
-              //   useRootNavigator: false,
-              //   // Navigator.pop(context, true),
-              //   builder: (BuildContext context) {
-              //     return Container(
-              //         child: subscriptionForm(
-              //             context, _nameController, _numberController));
-              //   },
-              // );
             },
-
-            
-            child : Padding(
-                  padding: EdgeInsetsDirectional.only(top: 30),
-                  child: MouseRegion(
-                    onEnter: (_) {
-                      setState(() {
-                        isDownloadHovered = true;
-                      });
-                    },
-                    onExit: (_) {
-                      setState(() {
-                        isDownloadHovered = false;
-                      });
-                    },
-                    child: GestureDetector(
-                      onTap: () {
-                        // _showDownloadDialog(context);
-                         showDialog(
-                context: context,
-                useRootNavigator: false,
-                // Navigator.pop(context, true),
-                builder: (BuildContext context) {
-                  return Container(
-                      child: subscriptionForm(
-                          context, _nameController, _numberController));
+            child: Padding(
+              padding: EdgeInsetsDirectional.only(top: 30),
+              child: MouseRegion(
+                onEnter: (_) {
+                  setState(() {
+                    isDownloadHovered = true;
+                  });
                 },
-              );
-                      },
-                      child: Transform.scale(
+                onExit: (_) {
+                  setState(() {
+                    isDownloadHovered = false;
+                  });
+                },
+                child: GestureDetector(
+                    onTap: () {
+                      // _showDownloadDialog(context);
+                      showDialog(
+                        context: context,
+                        useRootNavigator: false,
+                        // Navigator.pop(context, true),
+                        builder: (BuildContext context) {
+                          return Container(
+                              child: subscriptionForm(context, _nameController,
+                                  _numberController));
+                        },
+                      );
+                    },
+                    child: Transform.scale(
                       scale: isDownloadHovered ? 1.03 : 1.0,
-                      child : Container(
+                      child: Container(
                         width: 220,
                         decoration: BoxDecoration(
-                          color: isDownloadHovered
-                              ? Color(0xff7da0ca)
-                              : Color(0xff5483b3),
+                          color: hovMD
+                              ? (isDownloadHovered
+                                  ? Color.fromARGB(154, 84, 131, 179)
+                                  : Color(0xff5483B3))
+                              : (isDownloadHovered
+                                  ? Color.fromARGB(255, 252, 110, 39)
+                                  : Color(0xFFff5700)),
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 2,
@@ -118,49 +117,9 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                           ),
                         ),
                       ),
-                      )
-                    ),
-                  ),
-                ),
-
-
-
-            // child: AnimatedContainer(
-            //   duration: Duration(milliseconds: 200),
-            //   width: _isHovering ? 180 * 1.05 : 180,
-            //   height: _isHovering ? 50 * 1.05 : 50,
-            //   decoration: BoxDecoration(
-            //     color: _isHovering
-            //         ? Color.fromARGB(255, 0, 140, 255)
-            //         : const Color.fromARGB(255, 33, 150, 243),
-            //     borderRadius: BorderRadius.circular(20),
-            //   ),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            //     children: [
-            //       Text('Get me an app',
-            //           style: GoogleFonts.raleway(
-            //               textStyle: TextStyle(
-            //             fontSize: 16,
-            //             letterSpacing: 0,
-            //             fontWeight: FontWeight.w500,
-            //             decoration: TextDecoration.none,
-            //             color: Color.fromARGB(255, 255, 255, 255),
-            //           ))),
-            //       Container(
-            //         width: 20,
-            //         height: 30,
-            //         child: ClipRRect(
-            //           child: Image.asset(
-            //             'assets/images/rarrow.png',
-            //             width: 20,
-            //             height: 30,
-            //           ),
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
+                    )),
+              ),
+            ),
           )),
     ]);
   }
@@ -168,7 +127,8 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
   Center subscriptionForm(
       BuildContext context,
       TextEditingController nameController,
-      TextEditingController numberController) {
+      TextEditingController numberController,
+      ) {
     return Center(
       child: Stack(alignment: Alignment.center, children: [
         Container(
@@ -218,29 +178,29 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                     ),
                     Text(
                       'GET YOUR OWN APP TODAY',
-                      style:TextStyle(
-                          fontSize: 50,
-                          fontFamily: 'ArchivoBlack-Regular',
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontFamily: 'ArchivoBlack-Regular',
+                        letterSpacing: 0,
+                        fontWeight: FontWeight.w100,
+                        decoration: TextDecoration.none,
+                        color: Color(0xff5C6B8B),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 30),
+                      child: Text(
+                        'Your Vision , Our Code',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontFamily: 'arimo',
                           letterSpacing: 0,
-                          fontWeight: FontWeight.w100,
+                          fontWeight: FontWeight.w600,
                           decoration: TextDecoration.none,
                           color: Color(0xff5C6B8B),
                         ),
+                      ),
                     ),
-                    Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 30),
-                        child: Text(
-                          'Your Vision , Our Code',
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontFamily : 'arimo',
-                              letterSpacing: 0,
-                              fontWeight: FontWeight.w600,
-                              decoration: TextDecoration.none,
-                              color: Color(0xff5C6B8B),
-                            ),
-                          ),
-                        ),
                     Container(
                       height: MediaQuery.of(context).size.height * 0.20,
                       child: ClipRect(
@@ -344,8 +304,9 @@ class _SubscribeState extends State<Subscribe> {
   void _showSnackbar() {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('Container tapped! $_nameController.text $_numberController.number '),
-        duration : 7000.ms,
+        content: Text(
+            'Container tapped! $_nameController.text $_numberController.number '),
+        duration: 7000.ms,
       ),
     );
   }
@@ -357,7 +318,6 @@ class _SubscribeState extends State<Subscribe> {
           onEnter: (event) => _updateHover(true),
           onExit: (event) => _updateHover(false),
           child: GestureDetector(
-
             onTap: () {
               tap = true;
               h = true;

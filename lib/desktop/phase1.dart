@@ -7,9 +7,10 @@ import 'package:nsapps_mod/desktop/getMeApp.dart';
 class Phase1 extends StatefulWidget {
   final double pRt;
   final double pLt;
-  Phase1(this.pRt, this.pLt);
+  final bool hovMD;
+  Phase1(this.pRt, this.pLt , this.hovMD);
   @override
-  _Phase1State createState() => _Phase1State(pRt, pLt);
+  _Phase1State createState() => _Phase1State(pRt, pLt , hovMD);
 }
 
 // class _HoverEffectExampleState extends State<HoverEffectExample> {
@@ -21,8 +22,13 @@ class Phase1 extends StatefulWidget {
 class _Phase1State extends State<Phase1> {
   final double pRt;
   final double pLt;
+  final bool hovMD;
 
-  _Phase1State(this.pRt, this.pLt);
+    void startTimer() {
+      const oneSec = const Duration(seconds: 1);
+  }
+
+  _Phase1State(this.pRt, this.pLt , this.hovMD);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -42,21 +48,40 @@ class _Phase1State extends State<Phase1> {
                   Padding(
                     padding: EdgeInsets.only(bottom: 30.0),
                     child: Container(
-                      // width: 500,
-                      // height: 140,
                       // color : Colors.pink,
-                      width: MediaQuery.of(context).size.width * 0.35,
-                      height: MediaQuery.of(context).size.height * 0.12,
-                      // height: MediaQuery.of(context).size.height * 0.4,
+                      width: MediaQuery.of(context).size.width * 0.36,
                       // ${pRt}   ${MediaQuery.of(context).size.width }
                       child: RichText(
-                    text: TextSpan(
+                    text: TextSpan (
                       children: [
                         TextSpan(
-                          text: 'Think an app, we ',
+                          text: 'Think an',
                           style : TextStyle(
                           fontSize: 50,
                           letterSpacing: 0,
+                          fontFamily: 'poppins',
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        )
+                        ),
+                        TextSpan(
+                          text: ' app,',
+                          style : TextStyle(
+                          fontSize: 50,
+                          fontFamily: 'poppins',
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.none,
+                          color: Colors.blue,
+                        )
+                        ),
+                        TextSpan(
+                          text: ' we\n',
+                          style : TextStyle(
+                          fontSize: 50,
+                          letterSpacing: 0,
+                          fontFamily: 'poppins',
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,
                           color: Color.fromARGB(255, 0, 0, 0),
@@ -67,9 +92,10 @@ class _Phase1State extends State<Phase1> {
                           style : TextStyle(
                           fontSize: 50,
                           letterSpacing: 0,
+                          fontFamily: 'poppins',
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,
-                          color: Color.fromARGB(255, 0, 255, 68),
+                          color: Colors.lightGreenAccent[400],
                         )
                         ),
                         TextSpan(
@@ -78,6 +104,7 @@ class _Phase1State extends State<Phase1> {
                           fontSize: 50,
                           letterSpacing: 0,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'poppins',
                           decoration: TextDecoration.none,
                           color: Color.fromARGB(255, 0, 0, 0),
                         )
@@ -93,12 +120,11 @@ class _Phase1State extends State<Phase1> {
                     ),
 
                     SizedBox(
-                    height: 30,),
+                    height: 15,),
                 
 
                   Container(
-                    // width: 450,
-                    // height: 120,
+                  
                     width: MediaQuery.of(context).size.width * 0.3,
                     child: Text(
                         'Turning your vision into innovative apps, we create custom solutions that drive success and faster growth in the digital realm.',
@@ -114,7 +140,7 @@ class _Phase1State extends State<Phase1> {
 
                   Padding(
                     padding: EdgeInsets.only(top: 30),
-                    child: HoverEffectExample()
+                    child: HoverEffectExample(hovMD)
                         .animate()
                         .fade(delay: 100.ms)
                         .slideX(begin: -5, end: 0),

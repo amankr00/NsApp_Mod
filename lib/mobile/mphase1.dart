@@ -4,14 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:nsapps_mod/desktop/getMeApp.dart';
 
 class Mphase1 extends StatefulWidget {
-  const Mphase1({super.key});
+  final bool hovMD;
+  Mphase1(this.hovMD);
 
+  
   @override
   // ignore: library_private_types_in_public_api
-  _Mphase1State createState() => _Mphase1State();
+  _Mphase1State createState() => _Mphase1State(hovMD);
 }
 
 class _Mphase1State extends State<Mphase1> {
+final bool hovMD;
+  _Mphase1State(this.hovMD);
   @override
   Widget build(BuildContext context) {
 
@@ -27,7 +31,7 @@ class _Mphase1State extends State<Mphase1> {
                           height: MediaQuery.of(context).size.height * 0.91,
                           child: Column(children: [
                           SizedBox(
-                          height: 30,),                            
+                          height: 25,),                            
                             Container(
                               width: MediaQuery.of(context).size.width * 0.68,
                               // color : Colors.blueAccent,
@@ -79,7 +83,7 @@ class _Mphase1State extends State<Mphase1> {
                               height: 20,
                             ),
 
-                            HoverEffectExample(),
+                            HoverEffectExample(hovMD),
 
                             // SizedBox(
                             //   height: 50,

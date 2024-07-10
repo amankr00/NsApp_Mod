@@ -30,6 +30,7 @@ class HomeMain extends StatefulWidget {
 class _HomeMainState extends State<HomeMain> {
   final PageController controller = PageController(initialPage: 1);
   Timer? timer;
+  late bool hov = true;
 
   void startTimer() {
     timer = Timer.periodic(Duration(seconds: 5), (Timer timer) {
@@ -53,7 +54,7 @@ class _HomeMainState extends State<HomeMain> {
         body: SafeArea(
             top: true,
             child: ScreenTypeLayout.builder(
-              mobile: (BuildContext context) => MobileLy(),
+              mobile: (BuildContext context) => MobileLy(hov = true),
               desktop: (BuildContext context) =>
                   completePage(context, "tablet"),
               tablet: (BuildContext context) => completePage(context, "mobile"),
@@ -66,7 +67,7 @@ class _HomeMainState extends State<HomeMain> {
     startTimer();
     double pRt = MediaQuery.of(context).size.width;
     double pLt = MediaQuery.of(context).size.width;
-
+    hov = false;
     if (type == "Mobile") {
       pRt = pRt * 0.02;
     } else if (type == "tablet") {
@@ -91,7 +92,7 @@ class _HomeMainState extends State<HomeMain> {
               // Navbar
               navbar(),
 
-              Phase1(pRt, pLt),
+              Phase1(pRt, pLt , hov),
 
               SizedBox(
                 height: 20,
@@ -217,13 +218,18 @@ class _IconItemState extends State<IconItem> {
 }
 
 class MobileLy extends StatefulWidget {
+late final bool hovMD;
+  MobileLy(this.hovMD);
   @override
-  _MobileLyState createState() => _MobileLyState();
+  _MobileLyState createState() => _MobileLyState(hovMD);
 }
 
 class _MobileLyState extends State<MobileLy> {
+  bool hovMD;
+  _MobileLyState(this.hovMD);
   final ScrollController _scrollController = ScrollController();
   double _scale = 1.0;
+  bool hovMd = true;
 
   void _onScroll() {
     final double offset = _scrollController.position.pixels;
@@ -247,7 +253,7 @@ class _MobileLyState extends State<MobileLy> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context ,) {
     // bool _isDownloadHovered = false;
 
     final _containerHeight = 300.0;
@@ -293,7 +299,7 @@ class _MobileLyState extends State<MobileLy> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Mphase1(),
+                          Mphase1(hovMD),
 
                           Container(
                             height: 100,

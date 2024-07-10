@@ -175,6 +175,12 @@ flutter:
     - family : roboto
       fonts : 
         - asset: assets/fonts/roboto/Roboto-Regular.ttf
+
+    - family : poppins
+      fonts : 
+        - asset: assets/fonts/poppins/Poppins-Black.ttf
+
+    
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
