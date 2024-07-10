@@ -3,8 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:math' as math;
-
-import 'package:nsapps_mod/automaticScroll.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MyLot extends StatefulWidget {
   @override
@@ -13,10 +12,6 @@ class MyLot extends StatefulWidget {
 
 class _MyLotState extends State<MyLot> {
   int? isHovered;
-
-  // void showDetails() {
-
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -307,7 +302,147 @@ class _MyLotState extends State<MyLot> {
             builder: (BuildContext context) {
               return Container(
                   // color:Colors.white,
-                  child: PDFdownload(context, t1));
+                  child: PDFdownloadNOC(context, t1));
+            },
+          );
+        } else if (index == 0) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1));
+            },
+          );
+        } else if (index == 2) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1));
+            },
+          );
+        } else if (index == 3) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1));
+            },
+          );
+        } else if (index == 4) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1)
+                  );
+            },
+          );
+        } else if (index == 5) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1)
+                  );
+            },
+          );
+        } else if (index == 6) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1)
+                  );
+            },
+          );
+        } else if (index == 7) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1)
+                  );
+            },
+          );
+        } else if (index == 8) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1)
+                  );
+            },
+          );
+        } else if (index == 9) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1)
+                  );
+            },
+          );
+        } else if (index == 10) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1)
+                  );
+            },
+          );
+        } else if (index == 11) {
+          // Container(child:Text('Heelo'));
+          showDialog(
+            context: context,
+            // useRootNavigator: false,
+            // Navigator.pop(context, true),
+            builder: (BuildContext context) {
+              return Container(
+                  // color:Colors.white,
+                  child: PDFdownloadScheme(context, t1)
+                  );
             },
           );
         }
@@ -363,43 +498,40 @@ class _MyLotState extends State<MyLot> {
                     height: 10,
                   ),
 
-                 
-                    Container(
-                      width: wid,
-                      decoration: BoxDecoration(
-                          color: color,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            t1,
-                            style: TextStyle(
-                                color: const Color.fromARGB(255, 0, 0, 0),
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                decoration: TextDecoration.none),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                          Text(
-                            t2,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontSize: 12,
-                                fontWeight: FontWeight.normal,
-                                decoration: TextDecoration.none),
-                          ),
-                          SizedBox(
-                            height: 5,
-                          ),
-                        ],
-                      ),
+                  Container(
+                    width: wid,
+                    decoration: BoxDecoration(
+                        color: color, borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          t1,
+                          style: TextStyle(
+                              color: const Color.fromARGB(255, 0, 0, 0),
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.none),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          t2,
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 0, 0, 0),
+                              fontSize: 12,
+                              fontWeight: FontWeight.normal,
+                              decoration: TextDecoration.none),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                      ],
                     ),
-                
+                  ),
 
                   SizedBox(
                     height: 10,
@@ -432,92 +564,135 @@ class _MyLotState extends State<MyLot> {
   }
 }
 
-Center PDFdownload(BuildContext context, t1) {
+Center PDFdownloadNOC(BuildContext context, t1) {
   const IconData download_for_offline = IconData(
     0xe203,
     fontFamily: 'MaterialIcons',
   );
   return Center(
-    child: Stack(
-      alignment: Alignment.center,
-      children: [
-        Positioned(
-        // top : 0,
-            child: Container(
-                child: Image.asset('assets/images/cool.png',
-                    fit: BoxFit.contain))),
-        Positioned(
-            top: 270,
-            left : 420,
-            child: Container(
-              // color: Colors.black.withOpacity(0.5),
-              child: Column(
-                children: [
-                  Container(
-                      alignment: Alignment.center,
-                      width: 300,
-                      decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Text(
-                        t1,
-                        style: TextStyle(
-                            color: Color(0xfffbfbfb),
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold,
-                            decoration: TextDecoration.none),
-                      )),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      smallChip(download_for_offline, 'BDO'),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      smallChip(download_for_offline, 'CO'),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      smallChip(download_for_offline, 'PO'),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      smallChip(download_for_offline, 'Ex Engineer'),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      smallChip(download_for_offline, 'TA'),
-                      // SizedBox(width: 20,),
-                      // Container(),
-                      // Container(),
-                    ],
-                  ),
-                  SizedBox(height:80),
-                  Text('Press Esc to exit',
+    child: Container(
+        height: MediaQuery.of(context).size.height * 0.6,
+        width: MediaQuery.of(context).size.width * 0.7,
+        color: Colors.white,
+        alignment: Alignment.center,
+        child: Stack(
+          children: [
+            Positioned(child: 
+            Container(
+            height: 70,
+            width: MediaQuery.of(context).size.width * 0.7,
+            color:Color.fromARGB(98, 139, 166, 255))),
+          
+
+            Column(
+              children: [
+              SizedBox(height: 20,),
+                Text(
+                  t1,
                   style: TextStyle(
-                            color: Color.fromARGB(255, 18, 39, 198),
-                            fontSize: 20,
-                            fontWeight: FontWeight.normal,
-                            decoration: TextDecoration.none),
-                  )
-                ],
-              ),
-            ))
-      ],
-    ),
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none),
+                ),
+              SizedBox(height: 70,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    smallChip(download_for_offline, 'BDO' , context),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    smallChip(download_for_offline, 'CO',context),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    smallChip(download_for_offline, 'PO',context),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    smallChip(download_for_offline, 'Ex Engineer' , context),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    smallChip(download_for_offline, 'TA', context),
+                    // SizedBox(width: 20,),
+                    // Container(),
+                    // Container(),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        )),
   );
 }
 
-Container smallChip(IconData download_for_offline, String holder) {
-  return Container(
+Center PDFdownloadScheme(BuildContext context, t1) {
+  const IconData download_for_offline = IconData(
+    0xe203,
+    fontFamily: 'MaterialIcons',
+  );
+  return Center(
+    child: Container(
+        height: MediaQuery.of(context).size.height * 0.6,
+        width: MediaQuery.of(context).size.width * 0.7,
+        color: Colors.white,
+        alignment: Alignment.center,
+        child: Stack(
+          children: [
+            Positioned(child: 
+            Container(
+            height: 70,
+            width: MediaQuery.of(context).size.width * 0.7,
+            color:Color.fromARGB(98, 139, 166, 255))),
+          
+
+            Column(
+              children: [
+              SizedBox(height: 20,),
+                Text(
+                  t1,
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.none),
+                ),
+              SizedBox(height: 70,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    smallChip(download_for_offline, 'PDF' , context),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        )),
+  );
+}
+
+
+
+GestureDetector smallChip(IconData download_for_offline, String holder , context) {
+  return GestureDetector(
+  onTap: () async {
+                                  const url =
+                                      'https://rti.gov.in/rti-act.pdf';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                },
+  child : Container(
       width: 150,
       height: 165,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: Color(0xfffbfbfb)),
+          borderRadius: BorderRadius.circular(20), color: Color.fromARGB(255, 221, 238, 226)),
       child: Column(
         children: [
           SizedBox(
@@ -549,5 +724,6 @@ Container smallChip(IconData download_for_offline, String holder) {
                 decoration: TextDecoration.none),
           ),
         ],
-      ));
+      )));
 }
+

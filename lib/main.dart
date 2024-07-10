@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nsapps_mod/c.dart';
-import 'package:nsapps_mod/home.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nsapps_mod/layout.dart';
 
 
 void main() {
