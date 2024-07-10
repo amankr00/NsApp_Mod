@@ -14,22 +14,22 @@ class _ContainerList2State extends State<ContainerList2> {
     {
       'image': 'assets/images/csama.png',
       'title': 'Samadhan App',
-      'description': 'Revolutionizing travel planning: Our app simplifies booking.'
+      'description': 'Revolutionizing travel planning.'
     },
     {
       'image': 'assets/images/csamaksh.png',
       'title': 'Samaksh App',
-      'description': 'Revolutionizing travel planning: Our app simplifies booking.'
+      'description': 'Revolutionizing travel planning.'
     },
     {
       'image': 'assets/images/ctaskflow.png',
       'title': 'Taskflow App',
-      'description': 'Revolutionizing travel planning: Our app simplifies booking.'
+      'description': 'Revolutionizing travel planning.'
     },
     {
       'image': 'assets/images/caspire.png',
       'title': 'Aspire App',
-      'description': 'Revolutionizing travel planning: Our app simplifies booking.'
+      'description': 'Revolutionizing travel planning.'
     },
   ];
 
@@ -188,22 +188,22 @@ class _ContainerListState extends State<ContainerList> {
     {
       'image': 'assets/images/cdak.png',
       'title': 'Dak App',
-      'description': 'Revolutionizing travel planning: Our app simplifies booking.'
+      'description': 'Revolutionizing travel plannin'
     },
     {
       'image': 'assets/images/chome.png',
       'title': 'Home App',
-      'description': 'Revolutionizing travel planning: Our app simplifies booking.'
+      'description': 'Revolutionizing travel planning.'
     },
     {
       'image': 'assets/images/ciris.png',
       'title': 'Iris App',
-      'description': 'Simplifies the creation, storage, and access of post mortem and injury reports.'
+      'description': 'Simplifies the creation'
     },
     {
       'image': 'assets/images/cprath.png',
       'title': 'Prathmikta App',
-      'description': 'Revolutionizing travel planning: Our app simplifies booking.'
+      'description': 'Revolutionizing travel planning:.'
     },
   ];
 
@@ -243,9 +243,6 @@ class _ContainerListState extends State<ContainerList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 255, 255, 255),
-      width: MediaQuery.of(context).size.width * 0.4, // Adjust width as needed
-      height: MediaQuery.of(context).size.height * 0.9, // Adjust height as needed
       child: PageView.builder(
         reverse: true,
         physics: NeverScrollableScrollPhysics(),

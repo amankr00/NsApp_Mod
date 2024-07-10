@@ -31,7 +31,7 @@ final bool hovMD;
                           height: MediaQuery.of(context).size.height * 0.91,
                           child: Column(children: [
                           SizedBox(
-                          height: 25,),                            
+                          height: 20,),                            
                             Container(
                               width: MediaQuery.of(context).size.width * 0.68,
                               // color : Colors.blueAccent,
@@ -65,7 +65,7 @@ final bool hovMD;
                                       color: Colors.white),
                                 )),
                             const SizedBox(
-                              height: 20,
+                              height: 10,
                             ),
                             Container(
                                 width: MediaQuery.of(context).size.width * 0.7,
@@ -79,16 +79,10 @@ final bool hovMD;
                                       fontWeight: FontWeight.normal,
                                       color: Colors.white),
                                 )),
-                            const SizedBox(
-                              height: 20,
-                            ),
+                            
 
                             HoverEffectExample(hovMD),
 
-                            // SizedBox(
-                            //   height: 50,
-                            // ),
-                            // Anime5(),
                             Container(
                             width: MediaQuery.of(context).size.width * 0.72,
                             // height: 10,
@@ -102,9 +96,7 @@ final bool hovMD;
                           ]),
                         ),
                       ),
-                      const SizedBox(
-                        height: 100,
-                      ),
+                     
                     ],
                   );
   }

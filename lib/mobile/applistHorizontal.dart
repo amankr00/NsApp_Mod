@@ -24,18 +24,6 @@ class _HorizontalListViewState extends State<HorizontalListView> {
     super.dispose();
   }
 
-  //  void _startAutoScroll() {
-  //   _timer = Timer.periodic(Duration(milliseconds: 16), (timer) { // approximately 60 frames per second
-  //     if (_scrollController.hasClients) {
-  //       final maxScrollExtent = _scrollController.position.maxScrollExtent;
-  //       final currentPosition = _scrollController.position.pixels;
-  //       final newPosition = (currentPosition + (_scrollSpeed * 0.016)) % (maxScrollExtent + 1);
-
-  //       _scrollController.jumpTo(newPosition);
-  //     }
-  //   });
-  // }
-
   void _startAutoScroll() {
     _timer = Timer.periodic(Duration(milliseconds: 20), (timer) {
       if (_scrollController.hasClients) {
@@ -55,6 +43,7 @@ class _HorizontalListViewState extends State<HorizontalListView> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      physics: NeverScrollableScrollPhysics(),
       controller: _scrollController,
       scrollDirection: Axis.horizontal,
       itemCount: 9,

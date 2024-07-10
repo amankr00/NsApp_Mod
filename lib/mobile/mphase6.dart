@@ -11,8 +11,10 @@ class _Mphase6State extends State<Mphase6> {
   Widget build(BuildContext context) {
     return Stack(
     alignment: Alignment.center, children: [
+    Transform.scale(
+    child : Container()),
       Container(
-          // color: Color.fromARGB(255, 132, 190, 39),
+          color: Color.fromARGB(255, 132, 190, 39),
           height: MediaQuery.of(context).size.height ,
           width: MediaQuery.of(context).size.width * 1.3,
           child: ClipRRect(

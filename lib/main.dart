@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nsapps_mod/c.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'home.dart';
+import 'mobile/testgfg.dart';
 
 
 void main() {
@@ -22,10 +24,10 @@ class MyApp extends StatelessWidget {
           fontFamily: GoogleFonts.archivoBlack().fontFamily),
       initialRoute: '/',
       routes: {
-        // '/': (context) => HomeMain(title: 'Ns',),
-        '/': (context) => MyLot(),
+        '/': (context) => HomeMain(title: 'Ns',),
+        // '/': (context) => MyLot(),
         // '/' : (context) => TapToScroll(),
-        // '/' : (context) => ZoomOnScrollContainer(),
+        // '/' : (context) => ZoomImageOnScroll(),
         
       },
     );
