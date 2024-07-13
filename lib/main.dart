@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nsapps_mod/c2.dart';
 
+import 'c.dart';
 import 'home.dart';
 import 'mobile/testgfg.dart';
 
@@ -25,6 +27,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomeMain(title: 'Ns',),
+        // '/': (context) => Kaam(),
         // '/': (context) => MyLot(),
         // '/' : (context) => TapToScroll(),
         // '/' : (context) => ZoomImageOnScroll(),
@@ -33,3 +36,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+ 

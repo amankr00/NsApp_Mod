@@ -182,6 +182,10 @@ flutter:
       fonts : 
         - asset: assets/fonts/poppins/Poppins-Black.ttf
 
+    - family : lato
+      fonts : 
+        - asset: assets/fonts/lato/Lato-Black.ttf
+
     
   #
   # For details regarding fonts from package dependencies,

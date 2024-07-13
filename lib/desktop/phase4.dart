@@ -30,13 +30,6 @@ class phase4 extends StatelessWidget {
                 height: 120,
               ),
               Container(
-                  // child : Text('"Framer has been a game-changer in enabling us to bring all stakeholders on board with what the final product experience should actually feel like."',
-                  // style: TextStyle(
-                  // color: Colors.black,),)
-
-                  // width: 600,
-                  // height: 100,
-                  // color: Colors.green,
                   width: MediaQuery.of(context).size.width * 0.5,
                   child: RichText(
                     textAlign: TextAlign.justify,
