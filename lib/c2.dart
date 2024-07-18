@@ -1,7 +1,6 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'dart:math' as math;
 import 'dart:math';
 
 class Kaam extends StatefulWidget {
@@ -20,10 +19,13 @@ class _KaamState extends State<Kaam> {
       IconData(0xea78, fontFamily: 'MaterialIcons');
   static const IconData circle_outlined2 =
       IconData(0xef53, fontFamily: 'MaterialIcons');
-  
+
+  bool oe = false;
+
   Color background = Color(0xff004AAD);
   Color textColor = Colors.white;
-  int? isHovered;
+  int counter = 0;
+
   @override
   Widget build(BuildContext context) {
     double wid = MediaQuery.of(context).size.width;
@@ -31,298 +33,208 @@ class _KaamState extends State<Kaam> {
 
     return MaterialApp(
       home: Scaffold(
-      backgroundColor: Color(0xff004AAD),
-        body: Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Text('ZILA PARISHAD NALANDA',
-                    style: TextStyle(
-                        color:textColor,
-                        fontSize: 50,
-                        fontFamily: 'poppins',
-                        decoration: TextDecoration.none)),
-                        SizedBox(height: 20,),
-               
-                SizedBox(
-                  height: 15,
-                ),
-                Container(
+        backgroundColor: Color(0xff004AAD),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              Text('ZILA PARISHAD NALANDA',
+                  style: TextStyle(
+                      color: textColor,
+                      fontSize: 50,
+                      fontFamily: 'poppins',
+                      decoration: TextDecoration.none)),
+              SizedBox(height: 20),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
                 decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color : Color.fromARGB(255, 210, 210, 210),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color.fromARGB(255, 210, 210, 210),
                 ),
-                width: wid*0.45,
-                  child: Row(
+                width: wid * 0.45,
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                   Text('Financial Head : XYZ',
-                      style: TextStyle(
-                          // color:textColor,
-                          color:Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'lato1',
-                          decoration: TextDecoration.none)),
-                          SizedBox(width: 40,),
-                  Text('Financial Year : XYZ',
-                      style: TextStyle(
-                          color:Colors.black,
-                          // color:textColor,
-                          fontSize: 20,
-                          fontFamily: 'lato1',
-                          decoration: TextDecoration.none)),
-                          SizedBox(width: 40,),
-                  Text('Scheme Name : XYZ',
-                      style: TextStyle(
-                          // color:textColor,
-                          color:Colors.black,
-                          fontSize: 20,
-                          fontFamily: 'lato1',
-                          decoration: TextDecoration.none,
-                          fontWeight:FontWeight.normal)),
-                          // SizedBox(width: 20,),
-                  ],),
+                    Text('Financial Head : XYZ',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'lato1',
+                            decoration: TextDecoration.none)),
+                    SizedBox(width: 40),
+                    Text('Financial Year : XYZ',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'lato1',
+                            decoration: TextDecoration.none)),
+                    SizedBox(width: 40),
+                    Text('Scheme Name : XYZ',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontFamily: 'lato1',
+                            decoration: TextDecoration.none,
+                            fontWeight: FontWeight.normal)),
+                  ],
                 ),
-
-                SizedBox(
-                  height: 30,
-                ),
-                // for(int i=0;i<4;i++)
-                
-                roc(hei, wid),
-                SizedBox(
-                  height: 60,
-                ),
-                roc1(hei, wid),
-                SizedBox(
-                  height: 60,
-                ),
-                roc(hei, wid),
-                SizedBox(
-                  height: 60,
-                ),
-                roc1(hei, wid),
-                SizedBox(height: 100,),
+              ),
+              SizedBox(height: 30),
+              for (int i = 0; i < 3; i++) ...[
+                roc(hei, wid, i),
+                SizedBox(height: 60),
               ],
-            ),
+              SizedBox(height: 100),
+            ],
           ),
         ),
       ),
     );
   }
 
-  Stack roc(double hei, double wid) {
+  int callCount = 0;
+
+  Stack roc(double hei, double wid, int i) {
+    bool curve = false;
+    bool roc = (callCount % 2 == 1); // roc is true on every odd call
+
+    callCount++; // Increment call count after checking roc
+
+    List<String> rowData = [
+      "Scheme Details", "NOC Letters", "DPRO Approval", "DDC Approval"
+    ];
+
+    if (i == 1) {
+      rowData = ["Ex Engg MB, Bills", "MB Approved by TA", "TA Monitoring", "Ex Engg Work Order"];
+    } else if (i == 2) {
+      rowData = ["Inspection by Ex Engg", "Accountant File Put Up", "DDC Final Approval", "Scheme Completed"];
+    } 
+
     return Stack(
       alignment: Alignment.center,
       children: [
         Positioned(
-          top: 27, // Move the container down by 30 pixels
+          top: 27,
           child: Container(
             color: textColor,
-            height: 4, // Change height to 5
-            width: MediaQuery.of(context).size.width *
-                0.75, // Make the container full width
+            height: 4,
+            width: MediaQuery.of(context).size.width * 0.75,
           ),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            chip("Stage 1", wid, hei ,textColor , background),
-            chip("Good", wid, hei,textColor, background),
-            chip("Baad", wid, hei,textColor, background),
-            chip("Worst", wid, hei,textColor, background),
+            for (var text in rowData) chip(text, wid, hei, textColor, background),
           ],
         ),
-        // Positioned(
-        //     top: 37,
-        //     right: 60,
-        //     child: Center(
-        //       child: CustomPaint(
-        //         size: Size(200, 100), // Specify the size of the CustomPaint
-        //         painter: SemiCirclePainter(),
-        //       ),
-        //     )),
-         Positioned(
-         top:28,
-         right: 65,
-         child:
-         SemicircleWidget(radius: 116, strokeWidth: 4, color: textColor,)),
-
-      ],
-    );
-  }
-  Stack roc1(double hei, double wid) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Positioned(
-          top: 27, // Move the container down by 30 pixels
-          child: Container(
-            color: textColor,
-            height: 4, // Change height to 5
-            width: MediaQuery.of(context).size.width *
-                0.75, // Make the container full width
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            chip("Stage 1", wid, hei ,textColor , background),
-            chip("Good", wid, hei,textColor, background),
-            chip("Baad", wid, hei,textColor, background),
-            chip("Worst", wid, hei,textColor, background),
-          ],
-        ),
-        // Positioned(
-        //     top: 37,
-        //     right: 60,
-        //     child: Center(
-        //       child: CustomPaint(
-        //         size: Size(200, 100), // Specify the size of the CustomPaint
-        //         painter: SemiCirclePainter(),
-        //       ),
-        //     )),
-         Positioned(
-         top:29,
-         left: 65,
-         child:
-         SemicircleWidget1(radius: 116, strokeWidth: 4, color: textColor,)),
-
-      ],
-    );
-  }
-
-  Container chip(String t1, double wid, double hei , Color colort , Color colorb ) {
-    return Container(
-    alignment: Alignment.center,
-        width: MediaQuery.of(context).size.width /  8,
-        height: MediaQuery.of(context).size.height / 5,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          // color: Colors.deepPurple[100],
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Stack(
-            alignment: Alignment.center,
-              children: [
-              Positioned(
-              // top : -10,
-              child: 
-                Container(
-                 width: 60,
-                 height: 60,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: colorb,
-                      )
-                ),
-                ),
-                Icon(
-                  circle_outlined,
-                  size: 35,
-                  color:colort
-                ),
-              ],
-            ),
-            // SizedBox(
-            //   height: 10,
-            // ),
-            Text(t1,
-                style: TextStyle(
+        roc
+            ? Positioned(
+                top: 29,
+                left: 65,
+                child: SemicircleWidget(
+                    radius: 116,
+                    strokeWidth: 4,
                     color: textColor,
-                    fontFamily: 'lato',
-                    fontSize: 18,
-                    decoration: TextDecoration.none,
-                    fontWeight: FontWeight.w400)),
-            
-            Padding(padding: EdgeInsets.only(left : 15),
-            child : Container(
-            width: MediaQuery.of(context).size.width / 12 ,
-            // height: MediaQuery.of(context).size.height / 3,
+                    curve: curve),
+              )
+            : Positioned(
+                top: 29,
+                right: 65,
+                child: SemicircleWidget(
+                    radius: 116,
+                    strokeWidth: 4,
+                    color: textColor,
+                    curve: curve = true), // curve = true
+              )
+      ],
+    );
+  }
+
+  Container chip(
+      String t1, double wid, double hei, Color colort, Color colorb) {
+    return Container(
+      alignment: Alignment.center,
+      width: MediaQuery.of(context).size.width / 8,
+      height: MediaQuery.of(context).size.height / 5,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Positioned(
+                child: Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: colorb,
+                  ),
+                ),
+              ),
+              Icon(
+                circle_outlined,
+                size: 35,
+                color: colort,
+              ),
+            ],
+          ),
+          Text(t1,
+              style: TextStyle(
+                  color: textColor,
+                  fontFamily: 'lato',
+                  fontSize: 18,
+                  decoration: TextDecoration.none,
+                  fontWeight: FontWeight.w400)),
+          Padding(
+            padding: EdgeInsets.only(left: 15),
+            child: Container(
+              width: MediaQuery.of(context).size.width / 12,
               child: Text(
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do',
                   style: TextStyle(
                       fontFamily: 'lato1',
                       fontSize: 14,
-                      color:textColor,
+                      color: textColor,
                       decoration: TextDecoration.none,
                       fontWeight: FontWeight.normal)),
-            )
             ),
-          ],
-            
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }
-
-class SemiCirclePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color =
-          Color.fromARGB(255, 255, 255, 255) // Set the color of the semi-circle
-      ..style = PaintingStyle.stroke // Use stroke style
-      ..strokeWidth = 4.0; // Set the stroke width
-
-    final path = Path()
-      ..arcTo(
-        Rect.fromCircle(
-            center: Offset(size.width / 2, size.height),
-            radius: size.width / 1.7),
-        1.57 - pi,
-        pi,
-        false,
-      );
-
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return false; // Return true if the painter should repaint
-  }
-}
-
-
 
 class SemicircleWidget extends StatelessWidget {
   final double radius;
   final double strokeWidth;
   final Color color;
+  bool curve;
 
-  SemicircleWidget({required this.radius, required this.strokeWidth, required this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: SemicirclePainter(strokeWidth: strokeWidth, color: color),
-      size: Size(radius * 2, radius),
-    );
-  }
-}
-
-
-class SemicircleWidget1 extends StatelessWidget {
-  final double radius;
-  final double strokeWidth;
-  final Color color;
-
-  SemicircleWidget1({required this.radius, required this.strokeWidth, required this.color});
+  SemicircleWidget(
+      {required this.radius,
+      required this.strokeWidth,
+      required this.color,
+      required this.curve});
 
   @override
   Widget build(BuildContext context) {
     return CustomPaint(
-      painter: SemicirclePainter1(strokeWidth: strokeWidth, color: color),
+      painter: curve
+          ? SemicirclePainter1(strokeWidth: strokeWidth, color: color)
+          : SemicirclePainter(strokeWidth: strokeWidth, color: color),
       size: Size(radius * 2, radius),
     );
   }
 }
-
 
 class SemicirclePainter extends CustomPainter {
   final double strokeWidth;
@@ -341,8 +253,8 @@ class SemicirclePainter extends CustomPainter {
 
     canvas.drawArc(
       Rect.fromCircle(center: Offset(size.width / 2, size.height), radius: radius),
-      1.57-pi, // 180 degrees in radians (pi radians)
-      pi, // 180 degrees in radians (pi radians)
+      pi - 1.6,
+      pi,
       false,
       paint,
     );
@@ -353,6 +265,7 @@ class SemicirclePainter extends CustomPainter {
     return false;
   }
 }
+
 class SemicirclePainter1 extends CustomPainter {
   final double strokeWidth;
   final Color color;
@@ -370,8 +283,8 @@ class SemicirclePainter1 extends CustomPainter {
 
     canvas.drawArc(
       Rect.fromCircle(center: Offset(size.width / 2, size.height), radius: radius),
-      4.57-pi, // 180 degrees in radians (pi radians)
-      pi, // 180 degrees in radians (pi radians)
+      pi + 1.55,
+      pi,
       false,
       paint,
     );
