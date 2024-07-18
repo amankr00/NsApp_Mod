@@ -30,7 +30,6 @@ class _KaamState extends State<Kaam> {
   Widget build(BuildContext context) {
     double wid = MediaQuery.of(context).size.width;
     double hei = MediaQuery.of(context).size.height;
-
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0xff004AAD),
@@ -155,15 +154,18 @@ class _KaamState extends State<Kaam> {
   }
 
   Container chip(
-      String t1, double wid, double hei, Color colort, Color colorb) {
+      String t1, double wid, double hei, Color colort, Color colorb ) {
     return Container(
       alignment: Alignment.center,
       width: MediaQuery.of(context).size.width / 8,
-      height: MediaQuery.of(context).size.height / 5,
+      height: MediaQuery.of(context).size.height / 4.7,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
+        // color:Colors.black,
+        // color:Colors.white,
       ),
-      child: Column(
+      child : 
+      Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Stack(
@@ -193,6 +195,15 @@ class _KaamState extends State<Kaam> {
                   fontSize: 18,
                   decoration: TextDecoration.none,
                   fontWeight: FontWeight.w400)),
+                  SizedBox(height: 5,),
+                  Text('Click here to download!',
+                   style: TextStyle(
+                  color: textColor,
+                  fontFamily: 'lato1',
+                  fontSize: 16,
+                  )
+                  ),
+                  SizedBox(height: 5,),
           Padding(
             padding: EdgeInsets.only(left: 15),
             child: Container(
@@ -208,7 +219,7 @@ class _KaamState extends State<Kaam> {
             ),
           ),
         ],
-      ),
+      )
     );
   }
 }
