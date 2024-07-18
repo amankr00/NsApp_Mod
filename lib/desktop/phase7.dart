@@ -9,7 +9,7 @@ class phase7 extends StatelessWidget {
       height: 980,
       // height: MediaQuery.of(context).size.height * 0.93,
       width: MediaQuery.of(context).size.width * 1.00,
-      color: Colors.blue,
+      color: const Color.fromARGB(173, 33, 149, 243),
 
       child: Column(
         children: [

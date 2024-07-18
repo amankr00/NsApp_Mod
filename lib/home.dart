@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:nsapps_mod/mobile/footer.dart';
 import 'dart:async';
 import 'package:nsapps_mod/mobile/mphase1.dart';
 import 'package:nsapps_mod/mobile/mphase2.dart';
@@ -164,6 +164,7 @@ class _HomeMainState extends State<HomeMain> {
               ),
 
               phase7(),
+              
             ],
           ),
         ]));
@@ -389,6 +390,8 @@ class _MobileLyState extends State<MobileLy> {
                     SizedBox(height: 30),
                     Mphase8(),
                     SizedBox(height: 30),
+                    // Footer(),
+                    
                   
                   ],
                 ),

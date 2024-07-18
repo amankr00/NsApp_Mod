@@ -60,9 +60,9 @@ class _Phase1State extends State<Phase1> {
                           fontSize: 50,
                           letterSpacing: 0,
                           fontFamily: 'poppins',
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.normal,
                           decoration: TextDecoration.none,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: Color.fromARGB(203, 0, 0, 0),
                         )
                         ),
                         TextSpan(
@@ -71,7 +71,7 @@ class _Phase1State extends State<Phase1> {
                           fontSize: 50,
                           fontFamily: 'poppins',
                           letterSpacing: 0,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.normal,
                           decoration: TextDecoration.none,
                           color: Colors.blue,
                         )
@@ -82,9 +82,9 @@ class _Phase1State extends State<Phase1> {
                           fontSize: 50,
                           letterSpacing: 0,
                           fontFamily: 'poppins',
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.normal,
                           decoration: TextDecoration.none,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: Color.fromARGB(203, 0, 0, 0),
                         )
                         ),
                         TextSpan(
@@ -93,9 +93,9 @@ class _Phase1State extends State<Phase1> {
                           fontSize: 50,
                           letterSpacing: 0,
                           fontFamily: 'poppins',
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.normal,
                           decoration: TextDecoration.none,
-                          color: Colors.lightGreenAccent[400],
+                          color: Color.fromARGB(203, 0, 0, 0),
                         )
                         ),
                         TextSpan(
@@ -106,7 +106,7 @@ class _Phase1State extends State<Phase1> {
                           fontWeight: FontWeight.bold,
                           fontFamily: 'poppins',
                           decoration: TextDecoration.none,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: Color.fromARGB(203, 0, 0, 0),
                         )
                         )
                       ],
