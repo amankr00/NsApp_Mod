@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nsapps_mod/c2.dart';
 import 'package:nsapps_mod/mobile/footer.dart';
 
-import 'c.dart';
+import 'zilaScheme.dart';
 import 'home.dart';
 import 'mobile/testgfg.dart';
 
