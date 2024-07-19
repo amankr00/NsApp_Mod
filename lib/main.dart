@@ -4,7 +4,7 @@ import 'package:nsapps_mod/mobile/footer.dart';
 
 import 'zilaScheme.dart';
 import 'home.dart';
-import 'mobile/testgfg.dart';
+
 
 
 void main() {
