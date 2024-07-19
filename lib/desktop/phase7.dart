@@ -41,19 +41,6 @@ class phase7 extends StatelessWidget {
                     color: Color.fromARGB(255, 0, 0, 0))),
           ),
 
-          Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-          Container(
-          width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.38,
-            child: ContainerList3()),
-          Container(
-          width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.height * 0.38,
-            child: ContainerList4()),
-          ],)
-     
         ],
       ),
     );

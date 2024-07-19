@@ -59,7 +59,7 @@ class phase3 extends StatelessWidget {
                                       MediaQuery.of(context).size.width * 0.3,
                                   // height: MediaQuery.of(context).size.heght * 0.3,
                                   child: Text(
-                                      "Conduct stakeholder interviews and surveys to identify client goals, pain points, and requirements for a clear project scope statement.",
+                                      "Allocate resources and budget tasks effectively to optimize project outcomes and ensure timely completion.",
                                       style:TextStyle(
                                         fontSize: 20,
                                         fontFamily: 'Inter',

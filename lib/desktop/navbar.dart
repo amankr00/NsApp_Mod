@@ -5,10 +5,10 @@ class navbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-    alignment: Alignment.center,
+        alignment: Alignment.center,
         height: 80,
         decoration: BoxDecoration(
-        // color :Colors.yellow,
+          // color :Colors.yellow,
           border: Border(
             bottom: BorderSide(
               color: Color.fromARGB(
@@ -21,21 +21,34 @@ class navbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+          // SizedBox(width: 30,),
             Container(
-            width: MediaQuery.of(context).size.width * 0.13,
-            // color : Colors.pink,
-              child: Text(
-                'NS APPS INNOVATIONS',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Rubik',
+              width: MediaQuery.of(context).size.width * 0.18,
+              // color : Colors.pink,
+              child: RichText(
+                text: TextSpan(
+                  text: 'NS Apps Innovations',
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontFamily: 'lato',
                     letterSpacing: 0,
-                    fontWeight: FontWeight.w400,
-                    decoration: TextDecoration.none,
-                    color: const Color.fromARGB(255, 0, 0, 0)),
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black,
+                  ),
+                  children: const <TextSpan>[
+                    TextSpan(
+                      text: '.',
+                      style: TextStyle(
+                        fontSize: 25,
+                        letterSpacing: 0,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-            
           ],
         ));
   }

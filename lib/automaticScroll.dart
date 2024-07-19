@@ -7,9 +7,6 @@ class ContainerList2 extends StatefulWidget {
 }
 
 class _ContainerList2State extends State<ContainerList2> {
-  
-  
-
   final List<Map<String, String>> appData = [
     {
       'image': 'assets/images/csama.png',
@@ -103,21 +100,12 @@ class AnimatedContainerItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Calculate scale factor based on position relative to currentPage
-    double scaleFactor = (0.6 - (currentPage - index).abs() * 0.2).clamp(0.4, 0.6);
-
-    // Calculate the scale factor for the center container
-    double scale = 0.5;
-    if (currentPage == index) {
-      scale = 0.7; // Increase size when in center
-    }
-
     return Center(
       child: AnimatedContainer(
         duration: Duration(milliseconds: 1500),
         curve: Curves.easeInOut,
-        width: scaleFactor * MediaQuery.of(context).size.width * 0.7, // Adjust width as needed
-        height: scaleFactor * MediaQuery.of(context).size.height * 0.7, // Adjust height based on scale factor
+        width: MediaQuery.of(context).size.width * 0.7, // Adjust width as needed
+        height: MediaQuery.of(context).size.height * 0.7, // Adjust height as needed
         margin: EdgeInsets.symmetric(vertical: 10.0), // Adjust vertical margin between containers
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -181,14 +169,11 @@ class ContainerList extends StatefulWidget {
 }
 
 class _ContainerListState extends State<ContainerList> {
-  
-  
-
   final List<Map<String, String>> appData = [
     {
       'image': 'assets/images/cdak.png',
       'title': 'Dak App',
-      'description': 'Revolutionizing travel plannin'
+      'description': 'Revolutionizing travel planning'
     },
     {
       'image': 'assets/images/chome.png',
@@ -203,7 +188,7 @@ class _ContainerListState extends State<ContainerList> {
     {
       'image': 'assets/images/cprath.png',
       'title': 'Prathmikta App',
-      'description': 'Revolutionizing travel planning:.'
+      'description': 'Revolutionizing travel planning.'
     },
   ];
 
@@ -250,7 +235,7 @@ class _ContainerListState extends State<ContainerList> {
         controller: _controller,
         itemCount: appData.length,
         itemBuilder: (BuildContext context, int index) {
-          return AnimatedContainerItem(
+          return AnimatedContainerItem2(
             index: index,
             currentPage: currentPage,
             data: appData[index],
@@ -265,7 +250,6 @@ class _ContainerListState extends State<ContainerList> {
     );
   }
 }
-
 class AnimatedContainerItem2 extends StatelessWidget {
   final int index;
   final int currentPage;
@@ -275,21 +259,12 @@ class AnimatedContainerItem2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Calculate scale factor based on position relative to currentPage
-    double scaleFactor = (0.6 - (currentPage - index).abs() * 0.2).clamp(0.4, 0.6);
-
-    // Calculate the scale factor for the center container
-    double scale = 0.5;
-    if (currentPage == index) {
-      scale = 0.7; // Increase size when in center
-    }
-
     return Center(
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 500),
+        duration: Duration(milliseconds: 1500),
         curve: Curves.easeInOut,
-        width: scaleFactor * MediaQuery.of(context).size.width * 0.7, // Adjust width as needed
-        height: scaleFactor * MediaQuery.of(context).size.height * 0.7, // Adjust height based on scale factor
+        width: MediaQuery.of(context).size.width * 0.7, // Adjust width as needed
+        height: MediaQuery.of(context).size.height * 0.7, // Adjust height as needed
         margin: EdgeInsets.symmetric(vertical: 10.0), // Adjust vertical margin between containers
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -297,7 +272,7 @@ class AnimatedContainerItem2 extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
               width: MediaQuery.of(context).size.width * 0.7,
@@ -326,8 +301,7 @@ class AnimatedContainerItem2 extends StatelessWidget {
               ),
             ),
             Container(
-              width: MediaQuery.of(context).size.width * 0.4,
-              height: MediaQuery.of(context).size.height * 0.2,
+              width: MediaQuery.of(context).size.width * 0.28,
               alignment: Alignment.center,
               margin: EdgeInsets.all(8),
               child: Text(
@@ -347,3 +321,76 @@ class AnimatedContainerItem2 extends StatelessWidget {
     );
   }
 }
+
+// class AnimatedContainerItem2 extends StatelessWidget {
+//   final int index;
+//   final int currentPage;
+//   final Map<String, String> data;
+
+//   AnimatedContainerItem2({required this.index, required this.currentPage, required this.data});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: AnimatedContainer(
+//         duration: Duration(milliseconds: 500),
+//         curve: Curves.easeInOut,
+//         width: MediaQuery.of(context).size.width * 0.7, // Adjust width as needed
+//         height: MediaQuery.of(context).size.height * 0.7, // Adjust height as needed
+//         margin: EdgeInsets.symmetric(vertical: 10.0), // Adjust vertical margin between containers
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(20),
+//           color: Color.fromARGB(255, 212, 230, 255),
+//         ),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.center,
+//           children: [
+//             Container(
+//               width: MediaQuery.of(context).size.width * 0.7,
+//               height: 100,
+//               margin: EdgeInsets.all(8),
+//               decoration: BoxDecoration(
+//               // color:Colors.blue,
+//                 color: Colors.white,
+//                 image: DecorationImage(
+//                   image: AssetImage(data['image']!),
+//                   fit: BoxFit.contain,
+//                 ),
+//                 borderRadius: BorderRadius.circular(25),
+//               ),
+//             ),
+//             Container(
+//               width: MediaQuery.of(context).size.width * 0.25,
+//               margin: EdgeInsets.all(8),
+//               child: Text(
+//                 data['title']!,
+//                 style: TextStyle(
+//                   color: Color(0xff062659),
+//                   fontFamily: 'roboto',
+//                   fontSize: 16,
+//                   fontWeight: FontWeight.bold,
+//                 ),
+//               ),
+//             ),
+//             Container(
+//               width: MediaQuery.of(context).size.width * 0.4,
+//               height: MediaQuery.of(context).size.height * 0.2,
+//               alignment: Alignment.center,
+//               margin: EdgeInsets.all(8),
+//               child: Text(
+//                 data['description']!,
+//                 textAlign: TextAlign.center,
+//                 style: TextStyle(
+//                   color: Color(0xff062659),
+//                   fontFamily: 'roboto',
+//                   fontSize: 16,
+//                   fontWeight: FontWeight.normal,
+//                 ),
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

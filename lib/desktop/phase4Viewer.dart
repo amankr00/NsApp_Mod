@@ -33,7 +33,7 @@ class _MyAppState extends State<Phase4Viewer> {
     timer = Timer.periodic(Duration(seconds: 2), (Timer timer) {
       // Check if the controller and its page are valid
       if (controller.hasClients) {
-        final int nextPage = (controller.page!.round() + 1) % 4;
+        final int nextPage = (controller.page!.round() + 1) % 2;
         controller.animateToPage(
           nextPage,
           duration: Duration(milliseconds: 500),
@@ -54,12 +54,12 @@ class _MyAppState extends State<Phase4Viewer> {
             scrollDirection: Axis.horizontal,
             children: [
               phase4(
-                  "1",
+                  'assets/images/pranav.jpeg',
                   "Shri Pranav Kumar, I.A.S. Secretary, Home Department, Bihar",
                   " Samaksh App was my Idea to ensure teacher's punctuality and to increase student's daily turnout. I am glad that Nishant puts his best efförts to develop this app. After a year of evaluation, this app tums out to be very efficient and effective and bring about a positive change in this regard and also the school's opening punctuality increases to 96% within a year."),
-              phase4("Vinod Shukla", "Shri Pranav Kumar, I.A.S. Secretary, Home Department, Bihar", "Samaksh App was my Idea to ensure teacher's punctuality and to increase student's daily turnout. I am glad that Nishant puts his best efförts to develop this app. After a year of evaluation, this app tums out to be very efficient and effective and bring about a positive change in this regard and also the school's opening punctuality increases to 96% within a year."),
-              phase4("Munna Tripathi", "Shri Pranav Kumar, I.A.S. Secretary, Home Department, Bihar", "Samaksh App was my Idea to ensure teacher's punctuality and to increase student's daily turnout. I am glad that Nishant puts his best efförts to develop this app. After a year of evaluation, this app tums out to be very efficient and effective and bring about a positive change in this regard and also the school's opening punctuality increases to 96% within a year."),
-              phase4("Tony Stark", "Shri Pranav Kumar, I.A.S. Secretary, Home Department, Bihar", "Samaksh App was my Idea to ensure teacher's punctuality and to increase student's daily turnout. I am glad that Nishant puts his best efförts to develop this app. After a year of evaluation, this app tums out to be very efficient and effective and bring about a positive change in this regard and also the school's opening punctuality increases to 96% within a year."),
+              phase4('assets/images/shekharA.jpeg', "Shri Shekhar Anand, I.A.S. Secretary, Home Department, Bihar", "I would like to appreciate Nishant Shekhar, managing partner of NS Apps Innovations, for putting his best efforts into the development and implementation of ASPIRE App in our district. We have been using ASPIRE app for a while and have evaluated positive results. I could gladly say that it has proven to be an effective and efficient way of registering attendance, especially in the case of field employees"),
+              // phase4('assets/images/pranav.jpeg', "Shri Pranav Kumar, I.A.S. Secretary, Home Department, Bihar", "Samaksh App was my Idea to ensure teacher's punctuality and to increase student's daily turnout. I am glad that Nishant puts his best efförts to develop this app. After a year of evaluation, this app tums out to be very efficient and effective and bring about a positive change in this regard and also the school's opening punctuality increases to 96% within a year."),
+              // phase4('assets/images/pranav.jpeg', "Shri Pranav Kumar, I.A.S. Secretary, Home Department, Bihar", "Samaksh App was my Idea to ensure teacher's punctuality and to increase student's daily turnout. I am glad that Nishant puts his best efförts to develop this app. After a year of evaluation, this app tums out to be very efficient and effective and bring about a positive change in this regard and also the school's opening punctuality increases to 96% within a year."),
             ],
           ),
         ),
@@ -67,7 +67,7 @@ class _MyAppState extends State<Phase4Viewer> {
           padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
           child: SmoothPageIndicator(
             controller: controller,
-            count: 4,
+            count: 2,
             effect: ScrollingDotsEffect(
             dotWidth: 12.0,
             dotHeight: 12.0,

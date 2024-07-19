@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nsapps_mod/desktop/footer.dart';
+import 'package:nsapps_mod/mobile/foot.dart';
 import 'package:nsapps_mod/mobile/footer.dart';
 import 'dart:async';
 import 'package:nsapps_mod/mobile/mphase1.dart';
@@ -163,7 +165,10 @@ class _HomeMainState extends State<HomeMain> {
                 child: phase6(),
               ),
 
-              phase7(),
+              // phase7(),
+
+              Bottom(),
+
               
             ],
           ),
@@ -283,7 +288,7 @@ class _MobileLyState extends State<MobileLy> {
                     Mphase1(hovMD),
                     Container(
                       height: 100,
-                      color: Color(0xff7DA0ca),
+                      color: Color.fromARGB(255, 222, 222, 222),
                       child: HorizontalListView(),
                     ),
                     Mphase2(),
@@ -390,7 +395,7 @@ class _MobileLyState extends State<MobileLy> {
                     SizedBox(height: 30),
                     Mphase8(),
                     SizedBox(height: 30),
-                    // Footer(),
+                    Foot(),
                     
                   
                   ],

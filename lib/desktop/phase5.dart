@@ -38,15 +38,7 @@ class phase5 extends StatelessWidget {
                 child: RichText(
                     text: TextSpan(children: [
                   TextSpan(
-                    text: 'Ensuring ',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 3, 3, 4),
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'legal ',
+                    text: 'One codebase',
                     style: TextStyle(
                       color: Color(0xff008cf7),
                       fontSize: 50,
@@ -54,29 +46,14 @@ class phase5 extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: 'and ',
+                    text: ', multiple platform deployment.',
                     style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
+                      color: Color.fromARGB(255, 3, 3, 4),
                       fontSize: 50,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TextSpan(
-                    text: 'data security ',
-                    style: TextStyle(
-                      color:  Color(0xff008cf7),
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'compliance',
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  
                 ]))),
             Padding(
               padding: EdgeInsetsDirectional.only(top: 30),
@@ -94,7 +71,7 @@ class phase5 extends StatelessWidget {
                                       MediaQuery.of(context).size.width * 0.3,
                                   // height: MediaQuery.of(context).size.height * 0.3,
                                   child: Text(
-                                      "Conduct stakeholder interviews and surveys to identify client goals, pain points, and requirements for a clear project scope statement.",
+                                      "Develop one codebase to deploy across multiple platforms, ensuring consistent functionality and user experience everywhere.",
                                       style:TextStyle(
                                         fontSize: 20,
                                         fontFamily: 'Inter',

@@ -93,7 +93,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10, 15, 5, 15),
                                 child: Text(
-                                  'Download app',
+                                  'Get Your App',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: Color(0xFFFFFFFF),

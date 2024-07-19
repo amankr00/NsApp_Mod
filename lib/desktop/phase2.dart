@@ -53,7 +53,7 @@ class phase2 extends StatelessWidget {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: 'Analyzing ',
+                          text: 'Align project',
                           style : TextStyle(
                           fontSize: 50,
                           letterSpacing: 0,
@@ -63,7 +63,7 @@ class phase2 extends StatelessWidget {
                         )
                         ),
                         TextSpan(
-                          text: 'client needs',
+                          text: ' goals',
                           style : TextStyle(
                           fontSize: 50,
                           letterSpacing: 0,
@@ -73,7 +73,7 @@ class phase2 extends StatelessWidget {
                         )
                         ),
                         TextSpan(
-                          text: ' for projects.',
+                          text: ' for efficiency',
                           style : TextStyle(
                           fontSize: 50,
                           letterSpacing: 0,
@@ -109,7 +109,7 @@ class phase2 extends StatelessWidget {
                                       MediaQuery.of(context).size.width * 0.3,
                                   // height: MediaQuery.of(context).size.height * 0.3,
                                   child: Text(
-                                      "Conduct stakeholder interviews and surveys to identify client goals, pain points, and requirements for a clear project scope statement.",
+                                      "Align project goals for efficiency by evaluating requirements, prioritizing tasks, and streamlining processes. ",
                                       style:TextStyle(
                                         fontSize: 20,
                                         fontFamily: 'Inter',
