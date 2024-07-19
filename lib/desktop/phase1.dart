@@ -57,10 +57,10 @@ class _Phase1State extends State<Phase1> {
                         TextSpan(
                           text: 'Think an',
                           style : TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           letterSpacing: 0,
                           fontFamily: 'poppins',
-                          fontWeight: FontWeight.normal,
+                          fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,
                           color: Color.fromARGB(203, 0, 0, 0),
                         )
@@ -68,10 +68,10 @@ class _Phase1State extends State<Phase1> {
                         TextSpan(
                           text: ' app,',
                           style : TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           fontFamily: 'poppins',
                           letterSpacing: 0,
-                          fontWeight: FontWeight.normal,
+                          fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,
                           color: Colors.blue,
                         )
@@ -79,10 +79,10 @@ class _Phase1State extends State<Phase1> {
                         TextSpan(
                           text: ' we\n',
                           style : TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           letterSpacing: 0,
                           fontFamily: 'poppins',
-                          fontWeight: FontWeight.normal,
+                          fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,
                           color: Color.fromARGB(203, 0, 0, 0),
                         )
@@ -90,10 +90,10 @@ class _Phase1State extends State<Phase1> {
                         TextSpan(
                           text: 'code',
                           style : TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           letterSpacing: 0,
                           fontFamily: 'poppins',
-                          fontWeight: FontWeight.normal,
+                          fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,
                           color: Color.fromARGB(203, 0, 0, 0),
                         )
@@ -101,7 +101,7 @@ class _Phase1State extends State<Phase1> {
                         TextSpan(
                           text: ' your imagination.',
                           style : TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           letterSpacing: 0,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'poppins',

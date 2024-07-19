@@ -180,7 +180,8 @@ flutter:
 
     - family : poppins
       fonts : 
-        - asset: assets/fonts/poppins/Poppins-Black.ttf
+        - asset: assets/fonts/poppins/Poppins-Regular.ttf
+
 
     - family : lato
       fonts : 

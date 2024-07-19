@@ -30,7 +30,8 @@ class phase3 extends StatelessWidget {
                     text: 'Allocating resources and ',
                     style: TextStyle(
                       color: Color.fromARGB(255, 0, 0, 0),
-                      fontSize: 50,
+                      fontSize: 45,
+                      fontFamily: 'poppins',
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -38,7 +39,8 @@ class phase3 extends StatelessWidget {
                     text: 'budgeting tasks.',
                     style: TextStyle(
                       color: const Color.fromARGB(255, 255, 231, 11),
-                      fontSize: 50,
+                      fontSize: 45,
+                      fontFamily: 'poppins',
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -62,7 +64,7 @@ class phase3 extends StatelessWidget {
                                       "Allocate resources and budget tasks effectively to optimize project outcomes and ensure timely completion.",
                                       style:TextStyle(
                                         fontSize: 20,
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'poppins',
                                         letterSpacing: 0,
                                         fontWeight: FontWeight.w500,
                                         decoration: TextDecoration.none,

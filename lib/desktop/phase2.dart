@@ -55,9 +55,10 @@ class phase2 extends StatelessWidget {
                         TextSpan(
                           text: 'Align project',
                           style : TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           letterSpacing: 0,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'poppins',
                           decoration: TextDecoration.none,
                           color: Color.fromARGB(255, 0, 0, 0),
                         )
@@ -65,9 +66,10 @@ class phase2 extends StatelessWidget {
                         TextSpan(
                           text: ' goals',
                           style : TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           letterSpacing: 0,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'poppins',
                           decoration: TextDecoration.none,
                           color: Color(0xff721FF9),
                         )
@@ -75,8 +77,9 @@ class phase2 extends StatelessWidget {
                         TextSpan(
                           text: ' for efficiency',
                           style : TextStyle(
-                          fontSize: 50,
+                          fontSize: 45,
                           letterSpacing: 0,
+                          fontFamily: 'poppins',
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.none,
                           color: Color.fromARGB(255, 0, 0, 0),
@@ -112,7 +115,7 @@ class phase2 extends StatelessWidget {
                                       "Align project goals for efficiency by evaluating requirements, prioritizing tasks, and streamlining processes. ",
                                       style:TextStyle(
                                         fontSize: 20,
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'poppins',
                                         letterSpacing: 0,
                                         fontWeight: FontWeight.w500,
                                         decoration: TextDecoration.none,

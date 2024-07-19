@@ -56,8 +56,10 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                         // Navigator.pop(context, true),
                         builder: (BuildContext context) {
                           return Container(
-                              child: subscriptionForm(context, _nameController,
-                                  _numberController));
+                              child: hovMD ? 
+                              subscriptionForm2(context, _nameController,
+                                  _numberController)  : subscriptionForm(context, _nameController,
+                                  _numberController) ) ;
                         },
                       );
                     },
@@ -241,6 +243,167 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                     ),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.20,
+                      child: Material(
+                        // elevation: 3,
+                        borderRadius: BorderRadius.circular(60),
+                        color: Color(0xffEFF4FA),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: TextField(
+                            controller: _numberController,
+                            textAlign: TextAlign.center,
+                            decoration: InputDecoration(
+                              hintText: 'Enter your contact number',
+                              hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 163, 162, 162),
+                                fontSize: 18,
+                                fontFamily: 'play',
+                                fontWeight: FontWeight.w400,
+                                letterSpacing: 0,
+                              ),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.018,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      child: Subscribe(_nameController, _numberController),
+                    ),
+                  ],
+                )),
+          ]),
+        ),
+      ]),
+    );
+  }
+  Center subscriptionForm2(
+      BuildContext context,
+      TextEditingController nameController,
+      TextEditingController numberController,
+      ) {
+    return Center(
+      child: Stack(alignment: Alignment.center, children: [
+        Container(
+          width: MediaQuery.of(context).size.width * 0.70,
+          height: MediaQuery.of(context).size.height * 0.70,
+          color: Colors.purple,
+          child: Stack(children: [
+            Container(
+                width: MediaQuery.of(context).size.width * 0.70,
+                height: MediaQuery.of(context).size.height * 0.70,
+                color: Colors.white),
+            Positioned(
+              left: 0,
+              bottom: 0,
+              // right: 0,
+              child: Container(
+                  height: MediaQuery.of(context).size.height * 0.4,
+                  // color: Colors.green,
+                  child: ClipRect(
+                    child: Image.asset(
+                      'assets/images/ltbt.png',
+                    ),
+                  )),
+            ),
+            Positioned(
+              right: 0,
+              top: 0,
+              // right: 0,
+              child: Container(
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  // color: Colors.green,
+                  child: ClipRect(
+                    child: Image.asset(
+                      'assets/images/rtup.png',
+                    ),
+                  )),
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width * 0.70,
+                height: MediaQuery.of(context).size.height * 0.70,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.05,
+                    ),
+                    Container(
+                    // color:Colors.pink,
+                    alignment: Alignment.center,
+                width: MediaQuery.of(context).size.width * 0.70,
+                    child :  Text(
+                      'GET YOUR OWN APP TODAY',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'ArchivoBlack-Regular',
+                        letterSpacing: 0,
+                        fontWeight: FontWeight.w100,
+                        decoration: TextDecoration.none,
+                        color: Color(0xff5C6B8B),
+                      ),
+                    ),),
+                   
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 30),
+                      child: Text(
+                        'Your Vision , Our Code',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontFamily: 'arimo',
+                          letterSpacing: 0,
+                          fontWeight: FontWeight.w600,
+                          decoration: TextDecoration.none,
+                          color: Color(0xff5C6B8B),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.20,
+                      child: ClipRect(
+                        child: Image.asset('assets/images/lg.png'),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.01,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.40,
+                      child: Material(
+                        // elevation: 3,
+                        borderRadius: BorderRadius.circular(60),
+                        color: Color(0xffEFF4FA),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: TextField(
+                            controller: _nameController,
+                            textAlign: TextAlign.center,
+                            decoration: InputDecoration(
+                              hintText: 'Enter your name',
+                              hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 163, 162, 162),
+                                fontSize: 18,
+                                fontFamily: 'play',
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 0,
+                              ),
+                              border: InputBorder.none,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.008,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.40,
                       child: Material(
                         // elevation: 3,
                         borderRadius: BorderRadius.circular(60),

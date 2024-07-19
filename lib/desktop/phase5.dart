@@ -41,7 +41,8 @@ class phase5 extends StatelessWidget {
                     text: 'One codebase',
                     style: TextStyle(
                       color: Color(0xff008cf7),
-                      fontSize: 50,
+                      fontSize: 45,
+                      fontFamily: 'poppins',
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -49,7 +50,8 @@ class phase5 extends StatelessWidget {
                     text: ', multiple platform deployment.',
                     style: TextStyle(
                       color: Color.fromARGB(255, 3, 3, 4),
-                      fontSize: 50,
+                      fontSize: 45,
+                      fontFamily: 'poppins',
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -74,7 +76,7 @@ class phase5 extends StatelessWidget {
                                       "Develop one codebase to deploy across multiple platforms, ensuring consistent functionality and user experience everywhere.",
                                       style:TextStyle(
                                         fontSize: 20,
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'poppins',
                                         letterSpacing: 0,
                                         fontWeight: FontWeight.w500,
                                         decoration: TextDecoration.none,

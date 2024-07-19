@@ -20,14 +20,16 @@ class phase6 extends StatelessWidget {
                 TextSpan(
                     text: 'Staying ahead with ',
                     style: TextStyle(
-                      fontSize: 50,
+                      fontSize: 45,
+                      fontFamily: 'poppins',
                       color: Color.fromARGB(255, 0, 0, 0),
                       fontWeight: FontWeight.bold,
                     )),
                 TextSpan(
                     text: 'innovative technology ',
                     style: TextStyle(
-                      fontSize: 50,
+                      fontSize: 45,
+                      fontFamily: 'poppins',
                       color:Color(0xfffe4d87),
                       fontWeight: FontWeight.bold,
                     )),
@@ -54,7 +56,7 @@ class phase6 extends StatelessWidget {
                                       "Stay ahead with innovative technology by embracing advancements, adapting strategies, and implementing cutting-edge solutions proactively.",
                                       style:TextStyle(
                                         fontSize: 20,
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'poppins',
                                         letterSpacing: 0,
                                         fontWeight: FontWeight.w500,
                                         decoration: TextDecoration.none,

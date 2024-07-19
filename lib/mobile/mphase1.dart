@@ -59,13 +59,13 @@ final bool hovMD;
                                   'Cutting-edge bespoke mobile and web app development services.',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 36,
+                                      fontSize: 32,
                                       fontFamily: 'roboto',
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white),
                                 )),
                             const SizedBox(
-                              height: 10,
+                              height: 30,
                             ),
                             Container(
                                 width: MediaQuery.of(context).size.width * 0.7,
@@ -80,6 +80,9 @@ final bool hovMD;
                                       color: Colors.white),
                                 )),
                             
+                            // const SizedBox(
+                            //   height: 5,
+                            // ),
 
                             HoverEffectExample(hovMD),
 
