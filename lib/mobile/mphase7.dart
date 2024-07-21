@@ -26,7 +26,7 @@ Stack(
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.93,
-                        height: MediaQuery.of(context).size.height * 0.98,
+                        height: MediaQuery.of(context).size.height * 1.07,
                         // margin : EdgeInsets.all(30),
                         decoration: BoxDecoration(
                           // color: Color.fromARGB(255, 115, 25, 25),
@@ -106,7 +106,7 @@ class HomeScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         
                   Container(
-                  height: MediaQuery.of(context).size.height * 0.9,
+                  // height: MediaQuery.of(context).size.height * 0.95,
                   width: MediaQuery.of(context).size.width * 0.4,
                   // color : Colors.lightGreen,
                   child : ContainerList()),

@@ -10,18 +10,18 @@ class _Mphase8State extends State<Mphase8> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery.of(context).size.height * 0.58,
+        height: MediaQuery.of(context).size.height * 0.63,
         width: MediaQuery.of(context).size.width * 0.95,
         decoration: BoxDecoration(
             color: Color(0xffFCECFB), borderRadius: BorderRadius.circular(30)),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 20,
+              height:MediaQuery.of(context).size.height * 0.008 ,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 20),
+              padding: EdgeInsets.all(4),
               child: Container(
                   height: MediaQuery.of(context).size.height * 0.27,
                   width: MediaQuery.of(context).size.width * 0.87,
@@ -45,7 +45,7 @@ class _Mphase8State extends State<Mphase8> {
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold))),
                             SizedBox(
-                              height: 25,
+                              height: MediaQuery.of(context).size.height * 0.025,
                             ),
                             Container(
                                 width: MediaQuery.of(context).size.width * 0.7,
@@ -57,15 +57,15 @@ class _Mphase8State extends State<Mphase8> {
                                     style: TextStyle(
                                         color: Color(0xff052659),
                                         fontFamily: 'roboto',
-                                        fontSize: 16,
+                                        fontSize: 12,
                                         fontWeight: FontWeight.normal))),
                           ]))),
             ),
             SizedBox(
-              height: 40,
+              height: MediaQuery.of(context).size.height * 0.040,
             ),
             Padding(
-              padding: EdgeInsets.only(left: 40),
+              padding: EdgeInsets.only(left: MediaQuery.of(context).size.height * 0.040),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

@@ -64,14 +64,12 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                       );
                     },
                     child: Transform.scale(
-                      scale: isDownloadHovered ? 1.03 : 1.0,
+                      scale: 1.0,
                       child: Container(
                         width: 220,
                         decoration: BoxDecoration(
                           color: hovMD
-                              ? (isDownloadHovered
-                                  ? Color.fromARGB(154, 84, 131, 179)
-                                  : Color(0xff5483B3))
+                              ? (Color(0xff5483B3))
                               : (isDownloadHovered
                                   ? Color.fromARGB(255, 252, 110, 39)
                                   : Color(0xFFff5700)),
@@ -80,7 +78,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                               blurRadius: 2,
                               color: Color.fromARGB(51, 237, 236, 236),
                               offset: Offset(0, 2),
-                              spreadRadius: isDownloadHovered ? 3.8 : 0.5,
+                              spreadRadius: 0.5,
                             ),
                           ],
                           borderRadius: BorderRadius.circular(10),
@@ -108,7 +106,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                               AnimatedContainer(
                                 duration: Duration(milliseconds: 300),
                                 margin: EdgeInsets.only(
-                                    left: isDownloadHovered ? 10 : 0),
+                                    ),
                                 child: Icon(
                                   Icons.chevron_right,
                                   color: Color(0xFFFFFFFF),
@@ -292,7 +290,8 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
           width: MediaQuery.of(context).size.width * 0.70,
           height: MediaQuery.of(context).size.height * 0.70,
           color: Colors.purple,
-          child: Stack(children: [
+          child: Stack(
+          children: [
             Container(
                 width: MediaQuery.of(context).size.width * 0.70,
                 height: MediaQuery.of(context).size.height * 0.70,
@@ -331,7 +330,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.05,
+                      height: MediaQuery.of(context).size.height * 0.0002,
                     ),
                     Container(
                     // color:Colors.pink,
@@ -429,7 +428,7 @@ class _HoverEffectExampleState extends State<HoverEffectExample> {
                       ),
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.018,
+                      height: MediaQuery.of(context).size.width * 0.03,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20),

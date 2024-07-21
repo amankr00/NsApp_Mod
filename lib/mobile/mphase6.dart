@@ -19,24 +19,24 @@ class _Mphase6State extends State<Mphase6> {
               child: Image.asset('assets/images/designzoom2.png',
                   fit: BoxFit.cover))),
       Positioned(
-          top: 120,
+          top:  MediaQuery.of(context).size.height * 0.1,
           child: Opacity(
               opacity: 0.9,
               child: Container(
-                  width: MediaQuery.of(context).size.width * 0.85,
-                  height: MediaQuery.of(context).size.height * 0.75,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.95,
                   alignment: Alignment.center,
                   // color: Color.fromARGB(255, 174, 39, 39),
                   child: Stack(
                   alignment: Alignment.center, 
                   children: [
                   Positioned(
-                  top : 40,
+                  top :  MediaQuery.of(context).size.width * 0.05,
                   child: 
                     Column(
                       children: [
                         SizedBox(
-                          height: 25,
+                          height:  MediaQuery.of(context).size.width * 0.1,
                         ),
                         Container(
                             width: MediaQuery.of(context).size.width * 0.7,
@@ -51,7 +51,7 @@ class _Mphase6State extends State<Mphase6> {
                                     fontWeight: FontWeight.bold,
                                     color: Color(0xff052659)))),
                         SizedBox(
-                          height: 25,
+                          height:  MediaQuery.of(context).size.width * 0.05,
                         ),
                         Container(
                             width: MediaQuery.of(context).size.width * 0.6,
@@ -68,10 +68,14 @@ class _Mphase6State extends State<Mphase6> {
                       ],
                     ),
                     ),
-                    
+
                     Positioned(
-                        top: 360,
-                        right : 230,
+                        top:  MediaQuery.of(context).size.height * 0.42,
+                        left :  MediaQuery.of(context).size.width * 0.09,
+                        child : Container(
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            // width: MediaQuery.of(context).size.width * 0.2,
+
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -88,17 +92,20 @@ class _Mphase6State extends State<Mphase6> {
                               )),
                             )),
                             label: Padding(padding: EdgeInsets.all(5),
-                            child:  Text(
-                              'AR/VR',
-                              style: TextStyle(
-                                  color: Color(0xff021024),
-                                  fontFamily: 'roboto',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold),
-                            )))),
+                            child:  Container(
+                            // width: MediaQuery.of(context).size.width * 0.1 ,
+                              child: Text(
+                                'AR/VR',
+                                style: TextStyle(
+                                    color: Color(0xff021024),
+                                    fontFamily: 'roboto',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ))))),
                     Positioned(
-                        top: 360,
-                        left : 200,
+                            top:  MediaQuery.of(context).size.height * 0.42,
+                        right :  MediaQuery.of(context).size.width * 0.09,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -120,12 +127,12 @@ class _Mphase6State extends State<Mphase6> {
                               style: TextStyle(
                                   color: Color(0xff021024),
                                   fontFamily: 'roboto',
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold),
                             )))),
                     Positioned(
-                        top: 430,
-                        left : 50,
+                       top:  MediaQuery.of(context).size.height * 0.49,
+                        left :  MediaQuery.of(context).size.width * 0.048,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -147,12 +154,12 @@ class _Mphase6State extends State<Mphase6> {
                               style: TextStyle(
                                   color: Color(0xff021024),
                                   fontFamily: 'roboto',
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold),
                             )))),
                     Positioned(
-                        top: 430,
-                        left : 180,
+                         top:  MediaQuery.of(context).size.height * 0.49,
+                        right :  MediaQuery.of(context).size.width * 0.048,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -174,12 +181,12 @@ class _Mphase6State extends State<Mphase6> {
                               style: TextStyle(
                                   color: Color(0xff021024),
                                   fontFamily: 'roboto',
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold),
                             )))),
                     Positioned(
-                        top: 500,
-                        right : 180,
+                         top:  MediaQuery.of(context).size.height * 0.56,
+                        left :  MediaQuery.of(context).size.width * 0.048,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -201,12 +208,12 @@ class _Mphase6State extends State<Mphase6> {
                               style: TextStyle(
                                   color: Color(0xff021024),
                                   fontFamily: 'roboto',
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold),
                             )))),
                     Positioned(
-                        top: 500,
-                        left :250,
+                          top:  MediaQuery.of(context).size.height * 0.56,
+                        right :  MediaQuery.of(context).size.width * 0.048,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -232,8 +239,8 @@ class _Mphase6State extends State<Mphase6> {
                                   fontWeight: FontWeight.bold),
                             )))),
                     Positioned(
-                        top: 570,
-                        left :130,
+                           top:  MediaQuery.of(context).size.height * 0.63,
+                        left :  MediaQuery.of(context).size.width * 0.3,
                         child: Chip(
                             backgroundColor: Color(0xffFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -255,7 +262,7 @@ class _Mphase6State extends State<Mphase6> {
                               style: TextStyle(
                                   color: Color(0xff021024),
                                   fontFamily: 'roboto',
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold),
                             )))),
                    

@@ -33,7 +33,7 @@ final bool hovMD;
                           SizedBox(
                           height: 20,),                            
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.68,
+                              width: MediaQuery.of(context).size.width * 0.8,
                               // color : Colors.blueAccent,
                               alignment: Alignment.center,
 
@@ -41,14 +41,14 @@ final bool hovMD;
                                 'Transforming Your Ideas into innovative apps',
                                 style: TextStyle(
                                   fontFamily: 'roboto',
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   // color: Color(0xffFF576D),
                                   color: Color(0xff7da0ca),
                                 ),
                               ),
                             ),
                             SizedBox(
-                              height: 20,
+                              height:MediaQuery.of(context).size.height * 0.018,
                             ),
                             // ignore: duplicate_ignore
                             // ignore: sized_box_for_whitespace
@@ -56,44 +56,45 @@ final bool hovMD;
                                 width: MediaQuery.of(context).size.width * 0.8,
                                 // color : const Color.fromARGB(255, 68, 255, 130),
                                 child: Text(
-                                  'Cutting-edge bespoke mobile and web app development services.',
+                                  'Premier development for all platforms.',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 32,
+                                      fontSize: 28,
                                       fontFamily: 'roboto',
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white),
                                 )),
-                            const SizedBox(
-                              height: 30,
+                             SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.018,
                             ),
                             Container(
-                                width: MediaQuery.of(context).size.width * 0.7,
+                                width: MediaQuery.of(context).size.width * 0.8,
                                 // color : const Color.fromARGB(255, 215, 68, 255),
                                 child: const Text(
                                   'Turning your vision into innovative apps, we create custom solutions that drive success and faster growth in the digital realm.',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 14,
                                       fontFamily: 'roboto',
                                       fontWeight: FontWeight.normal,
                                       color: Colors.white),
                                 )),
                             
-                            // const SizedBox(
-                            //   height: 5,
-                            // ),
+                             SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.008,
+                            ),
 
                             HoverEffectExample(hovMD),
+                            SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
 
                             Container(
-                            width: MediaQuery.of(context).size.width * 0.72,
+                            width: MediaQuery.of(context).size.width * 0.65,
                             // height: 10,
                             alignment: Alignment.topCenter,
                             // color:Colors.pink,
                             child: ClipRRect(
                             child: Image.asset(
-                            'assets/images/bar.png',
+                            'assets/images/dev3.png',
                             fit : BoxFit.fitWidth),),)
 
                           ]),

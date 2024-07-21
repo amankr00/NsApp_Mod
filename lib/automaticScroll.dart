@@ -136,7 +136,7 @@ class AnimatedContainerItem extends StatelessWidget {
                 style: TextStyle(
                   color: Color(0xff062659),
                   fontFamily: 'roboto',
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -151,7 +151,7 @@ class AnimatedContainerItem extends StatelessWidget {
                 style: TextStyle(
                   color: Color(0xff062659),
                   fontFamily: 'roboto',
-                  fontSize: 16,
+                  fontSize: 12,
                   fontWeight: FontWeight.normal,
                 ),
               ),
@@ -295,7 +295,7 @@ class AnimatedContainerItem2 extends StatelessWidget {
                 style: TextStyle(
                   color: Color(0xff062659),
                   fontFamily: 'roboto',
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -310,7 +310,7 @@ class AnimatedContainerItem2 extends StatelessWidget {
                 style: TextStyle(
                   color: Color(0xff062659),
                   fontFamily: 'roboto',
-                  fontSize: 16,
+                  fontSize: 12,
                   fontWeight: FontWeight.normal,
                 ),
               ),

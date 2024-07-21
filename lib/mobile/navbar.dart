@@ -25,16 +25,29 @@ Container(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'NS APPS INNOVATIONS',
-              style: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'Rubik',
-                  letterSpacing: 0,
-                  fontWeight: FontWeight.w400,
-                  decoration: TextDecoration.none,
-                  color: Color.fromARGB(255, 255, 255, 255)),
-            ),
+             RichText(
+                text: TextSpan(
+                  text: 'NS Apps Innovations',
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontFamily: 'inter',
+                    letterSpacing: 0,
+                    fontWeight: FontWeight.bold,
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                  ),
+                  children: const <TextSpan>[
+                    TextSpan(
+                      text: '.',
+                      style: TextStyle(
+                        fontSize: 25,
+                        letterSpacing: 0,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
           ],
         ))]);
 }

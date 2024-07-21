@@ -376,7 +376,7 @@ class _MobileLyState extends State<MobileLy> {
                           Container(
                             width: MediaQuery.of(context).size.width * 0.7,
                             child: Text(
-                              'Conduct stakeholder interviews and surveys to identify client goals, pain points, and requirements for a clear project scope statement.',
+                              'Our company harnesses innovation to deliver cutting-edge solutions that redefine industry standards. By embracing advanced technology.',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'roboto',
